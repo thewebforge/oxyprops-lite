@@ -27,7 +27,7 @@ class Enqueue extends BaseController
         // Admin
         add_action('admin_enqueue_scripts', [$this, 'enqueueAdmin']);
 
-        $inlineSelected = $this->currentOptions['oxyprops_lite_mode'];
+        $inlineSelected = isset($this->currentOptions['oxyprops_lite_mode']) ? $this->currentOptions['oxyprops_lite_mode'] : false;
         if ($inlineSelected) {
             // Inline Styles
             add_action('wp_head', [$this, 'inlineFront'], 10000000000);
