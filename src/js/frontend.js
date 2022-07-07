@@ -1,8 +1,6 @@
-// src/js/frontend.js
-import "./shared"
 import "../sass/main.scss"
 
 const myFunction = () => {
-  console.log("frontend.js starting file")
+  console.log("OxyProps Lite Scripts available on Front End")
 }
 myFunction()

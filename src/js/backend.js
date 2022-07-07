@@ -1,7 +1,7 @@
 import "../sass/backend.scss";
 
 const myFunction = () => {
-  console.log("backend.js starting file");
+  console.log("OxyPRops Lite scripts available on BackEnd");
 };
 
 const switchTab = (e) => {
