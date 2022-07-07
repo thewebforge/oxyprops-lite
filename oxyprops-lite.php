@@ -11,6 +11,8 @@
  * Plugin URI:        https://lite.oxyprops.com
  * Description:       Open Props CSS Custom properties for WordPress users.
  * Version:           1.0.0-alpha01
+ * Requires at least: 5.6
+ * Requires PHP:      7.2
  * Author:            The Web Forge
  * Author URI:        https://thewebforge.dev
  * License:           MIT
