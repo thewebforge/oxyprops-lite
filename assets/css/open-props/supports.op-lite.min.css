@@ -1,1 +1,1 @@
-:where(html){--isLTR:1;--isRTL:-1}[dir=rtl] :where(html){--isLTR:-1;--isRTL:1}
+:where(html){--o-isLTR:1;--o-isRTL:-1}[dir=rtl] :where(html){--o-isLTR:-1;--o-isRTL:1}
