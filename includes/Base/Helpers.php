@@ -9,18 +9,9 @@
 
 namespace Inc\Base;
 
-class Helpers extends BaseController
+class Helpers
 {
-    private static $instance;
-
-    public static function getInstance()
-    {
-        if (null === self::$instance) {
-            self::$instance = new Helpers();
-        }
-
-        return self::$instance;
-    }
+    private static $open_props = 'assets/css/open-props/';
 
     public static function getJson($target)
     {
@@ -45,14 +36,14 @@ class Helpers extends BaseController
 
     public static function getFullBundle()
     {
-        $targetFile = plugin_dir_path(dirname(__FILE__, 2)).'open-props/open-props.op-lite.min.css';
+        $targetFile = plugin_dir_path(dirname(__FILE__, 2)).self::$open_props.'open-props.op-lite.min.css';
 
         return self::readFile($targetFile);
     }
 
     public static function getNormalizeStyles()
     {
-        $targetFile = plugin_dir_path(dirname(__FILE__, 2)).'open-props/normalize.op-lite.min.css';
+        $targetFile = plugin_dir_path(dirname(__FILE__, 2)).self::$open_props.'normalize.op-lite.min.css';
 
         return self::readFile($targetFile);
     }
@@ -63,7 +54,7 @@ class Helpers extends BaseController
         $str = '';
         foreach ($packagesList as $key => $value) {
             if (get_option('oxyprops_lite_packages')[$key] && isset($value['file'])) {
-                $packageFile = $path.'open-props/'.$value['file'].'.op-lite.min.css';
+                $packageFile = $path.self::$open_props.$value['file'].'.op-lite.min.css';
                 $str .= self::readFile($packageFile);
             }
         }
@@ -76,7 +67,7 @@ class Helpers extends BaseController
         $packagesList = self::getPluginPackagesOptions();
         foreach ($packagesList as $key => $value) {
             if (get_option('oxyprops_lite_packages')[$key] && isset($value['file'])) {
-                wp_enqueue_style('oxyprops-'.$value['file'], $url.'open-props/'.$value['file'].'.op-lite.min.css', [], $version, 'all');
+                wp_enqueue_style('oxyprops-'.$value['file'], $url.self::$open_props.$value['file'].'.op-lite.min.css', [], $version, 'all');
             }
         }
     }
