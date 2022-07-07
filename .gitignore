@@ -175,7 +175,6 @@ dist
 .svelte-kit
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,node
-assets
 open-props
 open-props/.github
 open-props/build
@@ -184,3 +183,4 @@ open-props/test
 open-props/.firebaserc
 open-props/.gitignore
 open-props/.npmignore
+open-prop-for-opl
