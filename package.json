@@ -5,18 +5,21 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack --mode=development --watch",
-    "build": "webpack --mode=production",
+    "build": "concurrently \"webpack --mode=production\" && concurrently npm:copy:* -m 25 && npm run zippack",
     "copy:assets": "copyfiles './assets/**/*'  dist/oxyprops-lite",
+    "copy:config": "copyfiles './config/**/*' dist/oxyprops-lite",
     "copy:includes": "copyfiles './includes/**/*' dist/oxyprops-lite",
     "copy:templates": "copyfiles './templates/**/*' dist/oxyprops-lite",
-    "copy:vendor": "copyfiles ./vendor/**/* dist/oxyprops-lite",
+    "copy:vendor": "copyfiles ./vendor/**/* dist/oxyprops-lite copyfiles ./vendor/* dist/oxyprops-lite",
     "copy:root": "copyfiles *.php dist/oxyprops-lite copyfiles *.txt dist/oxyprops-lite copyfiles *.md dist/oxyprops-lite copyfiles LICENSE dist/oxyprops-lite",
-    "copy": "npm-run-all --parallel copy:*",
-    "zippack": "zip-build dist zipped -t %NAME%.%VERSION%.%EXT%"
+    "copy": "concurrently npm:copy:*",
+    "zippack": "zip-build dist zipped -t %NAME%.%VERSION%.%EXT%",
+    "build:final": "concurrently npm:copy:* -m 25 && npm run zippack"
   },
   "author": "Cédric Bontems",
   "license": "MIT",
   "dependencies": {
+    "concurrently": "^7.2.2",
     "node-wget": "^0.4.3",
     "open-props": "^1.4.0"
   },
