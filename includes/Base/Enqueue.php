@@ -41,13 +41,13 @@ class Enqueue extends BaseController
     {
         // enqueue our front-end styles
         if (!$this->currentOptions['oxyprops_lite_bundle']) {
-            wp_enqueue_style('oxyprops-props', $this->pluginUrl.'open-props/open-props.op-lite.min.css', $this->version);
+            wp_enqueue_style('oxyprops-props', $this->pluginUrl.'assets/css/open-props/open-props.op-lite.min.css', $this->version);
         } else {
             Helpers::enqueueSelectedPackages($this->pluginUrl, $this->version);
         }
 
         if ($this->currentOptions['oxyprops_lite_normalize']) {
-            wp_enqueue_style('oxyprops-normalize', $this->pluginUrl.'open-props/normalize.op-lite.min.css', $this->version);
+            wp_enqueue_style('oxyprops-normalize', $this->pluginUrl.'assets/css/open-props/normalize.op-lite.min.css', $this->version);
         }
 
         // enqueue our front-end scripts
@@ -58,7 +58,7 @@ class Enqueue extends BaseController
     {
         // enqueue all our styles
         wp_enqueue_style('oxyprops-adminstyle', $this->pluginUrl.'assets/css/backend.min.css', [], $this->version, 'all');
-        wp_enqueue_style('oxyprops-props', $this->pluginUrl.'open-props/open-props.op-lite.min.css', [], $this->version, 'all');
+        wp_enqueue_style('oxyprops-props', $this->pluginUrl.'assets/css/open-props/open-props.op-lite.min.css', [], $this->version, 'all');
 
         // enqueue all our scripts
         wp_enqueue_script('oxyprops-adminscript', $this->pluginUrl.'assets/js/backend.js', [], $this->version, 'all');
