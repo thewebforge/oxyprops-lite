@@ -1,0 +1,16 @@
+{
+    "name": "thewebforge/oxyprops-lite",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cédric",
+            "email": "cheers@thewebforge.dev"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {"Inc\\": "./includes"}
+    }
+}

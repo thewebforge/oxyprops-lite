@@ -1,0 +1,85 @@
+
+$on: var(--o-indigo-6);
+$bgOn: var(--o-indigo-2);
+$bgOff: var(--o-gray-0);
+$off: var(--o-gray-4);
+
+$on: #2271b1;
+$bgOn: white;
+$bgOff: white;
+$off: var(--o-gray-4);
+
+
+@mixin center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin userSelect($value) {
+    -webkit-touch-callout: $value;
+    -webkit-user-select: $value;
+    -khtml-user-select: $value;
+    -moz-user-select: $value;
+    -ms-user-select: $value;
+    user-select: $value;
+}
+
+@mixin ui-toggle($height, $on, $off) {
+    margin: 0;
+    padding: 0;
+
+    input[type="checkbox"] {
+        display: none;
+
+        &:checked + label {
+            border-color: $on;
+            background-color: $on;
+            box-shadow: inset 0 0 0 calc($height/2) $on;
+
+            > div {
+                margin-left: $height;
+                background-color: $bgOn;
+            }
+        }
+    }
+    label {
+        transition: all 200ms ease;
+        display: inline-block;
+        position: relative;
+        @include userSelect(none);
+        background-color: $off;
+        box-shadow: inset 0 0 0 0 $on;
+        border: 2px solid $off;
+        border-radius: 100vw;
+        width: calc($height * 2);
+        height: $height;
+
+        div {
+            transition: all 200ms ease;
+            background-color: $bgOff;
+            width: $height;
+            height: $height;
+            border-radius: calc($height/2);
+        }
+
+        &:hover,
+        & > div:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+div.oxyprops-ui-toggle {
+    @include ui-toggle(var(--o-size-3), $on, $off);
+}
+
+.oxyprops-ui-toggle > th {
+    vertical-align: middle;
+    padding-block: 10px;
+}
+
+.oxyprops-ui-toggle > td {
+    padding-block: 0;
+}

@@ -1,0 +1,224 @@
+{
+    "oxyprops_lite_animations" : {
+        "description" : "Animations",
+        "default" : "0",
+        "section": "main_packages",
+        "file": "animations"
+    },
+    "oxyprops_lite_aspects" : {
+        "description" : "Aspect Ratios",
+        "default" : "0",
+        "section": "main_packages",
+        "file": "aspects"
+    },
+    "oxyprops_lite_borders" : {
+        "description" : "Borders",
+        "default" : "0",
+        "section": "main_packages",
+        "file": "borders"
+    },
+    "oxyprops_lite_easings" : {
+        "description" : "Easings",
+        "default" : "0",
+        "section": "main_packages",
+        "file": "easings"
+    },
+    "oxyprops_lite_fonts" : {
+        "description" : "Fonts",
+        "default" : "0",
+        "section": "main_packages",
+        "file": "fonts"
+    },
+    "oxyprops_lite_gradients" : {
+        "description" : "Gradients",
+        "default" : "0",
+        "section": "main_packages",
+        "file": "gradients"
+    },
+    "oxyprops_lite_shadows" : {
+        "description" : "Shadows",
+        "default" : "0",
+        "section": "main_packages",
+        "file": "shadows"
+    },
+    "oxyprops_lite_sizes" : {
+        "description" : "Sizes",
+        "default" : "0",
+        "section": "main_packages",
+        "file": "sizes"
+    },
+    "oxyprops_lite_zindex" : {
+        "description" : "Z-index",
+        "default" : "0",
+        "section": "main_packages",
+        "file": "zindex"
+    },
+    "oxyprops_lite_colors" : {
+        "description" : "All Colors",
+        "default" : "0",
+        "section": "main_packages",
+        "file": "colors"
+    },
+    "oxyprops_lite_colors_hsl" : {
+        "description" : "All Colors hsl",
+        "default" : "0",
+        "section": "main_packages",
+        "file": "colors-hsl"
+    },
+    "oxyprops_lite_blue" : {
+        "description" : "Blue",
+        "default" : "0",
+        "section": "individual_colors",
+        "file": "blue"
+    },
+    "oxyprops_lite_blue_hsl" : {
+        "description" : "Blue hsl",
+        "default" : "0",
+        "section": "individual_colors_hsl",
+        "file": "blue-hsl"
+    },
+    "oxyprops_lite_cyan" : {
+        "description" : "Cyan",
+        "default" : "0",
+        "section": "individual_colors",
+        "file": "cyan"
+    },
+    "oxyprops_lite_cyan_hsl" : {
+        "description" : "Cyan hsl",
+        "default" : "0",
+        "section": "individual_colors_hsl",
+        "file": "cyan-hsl"
+    },
+    "oxyprops_lite_grape" : {
+        "description" : "Grape",
+        "default" : "0",
+        "section": "individual_colors",
+        "file": "grape"
+    },
+    "oxyprops_lite_grape_hsl" : {
+        "description" : "Grape hsl",
+        "default" : "0",
+        "section": "individual_colors_hsl",
+        "file": "grape-hsl"
+    },
+    "oxyprops_lite_gray" : {
+        "description" : "Gray",
+        "default" : "0",
+        "section": "individual_colors",
+        "file": "gray"
+    },
+    "oxyprops_lite_gray_hsl" : {
+        "description" : "Gray hsl",
+        "default" : "0",
+        "section": "individual_colors_hsl",
+        "file": "gray-hsl"
+    },
+    "oxyprops_lite_green" : {
+        "description" : "Green",
+        "default" : "0",
+        "section": "individual_colors",
+        "file": "green"
+    },
+    "oxyprops_lite_green_hsl" : {
+        "description" : "Green hsl",
+        "default" : "0",
+        "section": "individual_colors_hsl",
+        "file": "green-hsl"
+    },
+    "oxyprops_lite_indigo" : {
+        "description" : "Indigo",
+        "default" : "0",
+        "section": "individual_colors",
+        "file": "indigo"
+    },
+    "oxyprops_lite_indigo_hsl" : {
+        "description" : "Indigo hsl",
+        "default" : "0",
+        "section": "individual_colors_hsl",
+        "file": "indigo-hsl"
+    },
+    "oxyprops_lite_lime" : {
+        "description" : "Lime",
+        "default" : "0",
+        "section": "individual_colors",
+        "file": "lime"
+    },
+    "oxyprops_lite_lime_hsl" : {
+        "description" : "Lime hsl",
+        "default" : "0",
+        "section": "individual_colors_hsl",
+        "file": "lime-hsl"
+    },
+    "oxyprops_lite_orange" : {
+        "description" : "Orange",
+        "default" : "0",
+        "section": "individual_colors",
+        "file": "orange"
+    },
+    "oxyprops_lite_orange_hsl" : {
+        "description" : "Orange hsl",
+        "default" : "0",
+        "section": "individual_colors_hsl",
+        "file": "orange-hsl"
+    },
+    "oxyprops_lite_pink" : {
+        "description" : "Pink",
+        "default" : "0",
+        "section": "individual_colors",
+        "file": "pink"
+    },
+    "oxyprops_lite_pink_hsl" : {
+        "description" : "Pink hsl",
+        "default" : "0",
+        "section": "individual_colors_hsl",
+        "file": "pink-hsl"
+    },
+    "oxyprops_lite_red" : {
+        "description" : "Red",
+        "default" : "0",
+        "section": "individual_colors",
+        "file": "red"
+    },
+    "oxyprops_lite_red_hsl" : {
+        "description" : "Red hsl",
+        "default" : "0",
+        "section": "individual_colors_hsl",
+        "file": "red-hsl"
+    },
+    "oxyprops_lite_teal" : {
+        "description" : "Teal",
+        "default" : "0",
+        "section": "individual_colors",
+        "file": "teal"
+    },
+    "oxyprops_lite_teal_hsl" : {
+        "description" : "Teal hsl",
+        "default" : "0",
+        "section": "individual_colors_hsl",
+        "file": "teal-hsl"
+    },
+    "oxyprops_lite_violet" : {
+        "description" : "Violet",
+        "default" : "0",
+        "section": "individual_colors",
+        "file": "violet"
+    },
+    "oxyprops_lite_violet_hsl" : {
+        "description" : "Violet hsl",
+        "default" : "0",
+        "section": "individual_colors_hsl",
+        "file": "violet-hsl"
+    },
+    "oxyprops_lite_yellow" : {
+        "description" : "Yellow",
+        "default" : "0",
+        "section": "individual_colors",
+        "file": "yellow"
+    },
+    "oxyprops_lite_yellow_hsl" : {
+        "description" : "Yellow hsl",
+        "default" : "0",
+        "section": "individual_colors_hsl",
+        "file": "yellow-hsl"
+    }
+}

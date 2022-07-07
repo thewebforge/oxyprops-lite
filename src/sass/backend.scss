@@ -1,0 +1,74 @@
+@use "./checkbox";
+
+.nav-tabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-block: 0;
+  list-style-type: none;
+  border-bottom: 1px solid transparent;
+}
+
+.nav-tabs > li > a {
+  margin-right: 2px;
+  line-height: 1.5;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+  text-decoration: none;
+}
+
+.nav-tabs > li > a:hover {
+border-color: #eee #eee transparent;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #555;
+  cursor: default;
+  background-color: white;
+}
+
+.tab-content > .tab-pane {
+  display: none;
+  padding-block: 20px;
+  padding-inline: 40px;
+}
+
+.tab-content > .tab-pane .columns {
+  display: grid;
+  grid-auto-flow: column ;
+  grid-template-rows: auto auto 1fr;
+}
+
+.tab-content > .tab-pane.active {
+  display: block;
+  background-color: #fff;
+  box-shadow: 0 5px 4px -2px rgba(0,0,0,0.15);
+}
+
+.oxyprops-radio-row + .oxyprops-radio-row {
+  margin-top: 5px;
+}
+
+h1.op-heading {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+
+  > svg {
+    width: 28px;
+  }
+
+}
+
+.op-logo {
+  fill: var(--o-orange-5);
+  stroke: none;
+}

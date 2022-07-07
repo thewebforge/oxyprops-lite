@@ -1,0 +1,36 @@
+{
+  "name": "oxyprops-lite",
+  "version": "1.0.0-alpha01",
+  "description": "Open Props CSS Custom properties for WordPress users",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --mode=development --watch",
+    "build": "webpack --mode=production"
+  },
+  "author": "Cédric Bontems",
+  "license": "MIT",
+  "dependencies": {
+    "node-wget": "^0.4.3",
+    "open-props": "^1.4.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.6",
+    "@babel/core": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "autoprefixer": "^10.4.7",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "cssnano": "^5.1.12",
+    "file-loader": "^6.2.0",
+    "image-webpack-loader": "^8.1.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "pixrem": "^5.0.0",
+    "postcss-import": "^14.1.0",
+    "postcss-loader": "^7.0.0",
+    "sass": "^1.53.0",
+    "sass-loader": "^13.0.2",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
