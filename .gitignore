@@ -176,6 +176,7 @@ dist
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,node
 assets
+open-props
 open-props/.github
 open-props/build
 open-props/docsite
