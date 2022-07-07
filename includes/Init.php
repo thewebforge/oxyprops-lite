@@ -19,7 +19,7 @@ final class Init
     public static function getServices()
     {
         return [
-            Base\Helpers::class,
+            // Base\Helpers::class,
             Pages\Dashboard::class,
             Pages\IndividualPackages::class,
             Api\Callbacks\AdminCallbacks::class,
