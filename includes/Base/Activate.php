@@ -13,8 +13,9 @@ class Activate
 {
     public static function activate()
     {
-        flush_rewrite_rules();
         self::setDefaultParameters();
+        self::setDefaultPackages();
+        flush_rewrite_rules();
     }
 
     private static function setDefaultParameters()
@@ -23,11 +24,25 @@ class Activate
             return;
         }
         $default = [];
-        $oxyprops_light_options = Helpers::getPluginDefaultOptions();
-        foreach ($oxyprops_light_options as $key => $parameters) {
+        $oxyprops_lite_options = Helpers::getPluginDefaultOptions();
+        foreach ($oxyprops_lite_options as $key => $parameters) {
             $default[$key] = $parameters['default'];
         }
 
         update_option('oxyprops_lite', $default);
+    }
+
+    private static function setDefaultPackages()
+    {
+        if (get_option('oxyprops_lite_packages')) {
+            return;
+        }
+        $default = [];
+        $oxyprops_lite_options = Helpers::getPluginPackagesOptions();
+        foreach ($oxyprops_lite_options as $key => $parameters) {
+            $default[$key] = $parameters['default'];
+        }
+
+        update_option('oxyprops_lite_packages', $default);
     }
 }
