@@ -63,12 +63,19 @@ h1.op-heading {
   margin-bottom: 30px;
 
   > svg {
-    width: 28px;
+    width: 36px;
+    stroke: none;
+
+    #op-svg-logo__dash1 {
+      fill: var(--o-indigo-7);
+    }
+    #op-svg-logo__dash2 {
+      fill: var(--o-indigo-7);
+    }
+    #op-svg-logo__ring {
+      fill: var(--o-indigo-5);
+    }
+
   }
 
-}
-
-.op-logo {
-  fill: var(--o-orange-5);
-  stroke: none;
 }
