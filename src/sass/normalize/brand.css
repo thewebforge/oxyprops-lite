@@ -1,0 +1,11 @@
+:where(html) {
+  --o-scrollthumb-color: var(--o-gray-6);
+
+  scrollbar-color: var(--o-scrollthumb-color) transparent;
+  accent-color: var(--o-link);
+  caret-color: var(--o-link);
+
+  @media (--o-OSlight) {
+    --o-scrollthumb-color: var(--o-gray-7);
+  }
+}

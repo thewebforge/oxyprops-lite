@@ -1,0 +1,16 @@
+@media (--o-OSdark) {
+  :where(html) {
+    color-scheme: dark;
+
+    --o-link: var(--o-indigo-3);
+    --o-link-visited: var(--o-grape-3);
+
+    --o-text-1: var(--o-gray-1);
+    --o-text-2: var(--o-gray-4);
+
+    --o-surface-1: var(--o-gray-9);
+    --o-surface-2: var(--o-gray-8);
+    --o-surface-3: var(--o-gray-7);
+    --o-surface-4: var(--o-gray-6);
+  }
+}

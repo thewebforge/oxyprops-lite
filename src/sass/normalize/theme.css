@@ -1,0 +1,20 @@
+:where(html) { 
+  color: var(--o-text-2);
+  background-color: var(--o-surface-1);
+}
+
+:where(h1, h2, h3, h4, h5, h6, dt) { 
+  color: var(--o-text-1);
+}
+
+:where(a[href]) {
+  color: var(--o-link);
+  
+  &:visited {
+    color: var(--o-link-visited);
+  }
+}
+
+:focus-visible { 
+  outline-color: var(--o-link); 
+}
