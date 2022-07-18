@@ -4,7 +4,7 @@
  * Enqueues styles and script to back and front.
  * php version 7.4.29
  *
- * @category API
+ * @category Base
  * @package  OxyPropsLite
  * @author   Cédric Bontems <dev@oxyprops.com>
  * @license  https://opensource.org/licenses/MIT MIT
@@ -19,7 +19,7 @@ namespace Inc\Base;
  * Enqueues styles and script to back and front.
  * php version 7.4.29
  *
- * @category API
+ * @category Base
  * @package  OxyPropsLite
  * @author   Cédric Bontems <dev@oxyprops.com>
  * @license  https://opensource.org/licenses/MIT MIT

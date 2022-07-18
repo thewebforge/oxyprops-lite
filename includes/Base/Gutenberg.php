@@ -1,27 +1,68 @@
 <?php
-
 /**
- * OxyProps Lite.
+ * Gutenberg
+ * Manages interactions with Gutenberg.
+ * php version 7.4.29
  *
- * @see              https://lite.oxyprops.com
- * @since             1.0.0
+ * @category Base
+ * @package  OxyPropsLite
+ * @author   Cédric Bontems <dev@oxyprops.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://lite.oxyprops.com OxyProps Lite Website
+ * @since    1.0.0
  */
 
 namespace Inc\Base;
 
+/**
+ * Gutenberg Class
+ * Manages interactions with Gutenberg.
+ * php version 7.4.29
+ *
+ * @category Base
+ * @package  OxyPropsLite
+ * @author   Cédric Bontems <dev@oxyprops.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://lite.oxyprops.com OxyProps Lite Website
+ * @since    1.0.0
+ */
 class Gutenberg extends BaseController
 {
-    private static $instance;
+    /**
+     * Stores the Gutenberg Singleton.
+     *
+     * @var object
+     *
+     * @since  1.0.0
+     * @author Cédric Bontems <dev@oxyprops.com>
+     */
+    private static $_instance;
 
+    /**
+     * Returns the Gutenberg Singleton.
+     *
+     * @return object Instance
+     *
+     * @since  1.0.0
+     * @author Cédric Bontems <dev@oxyprops.com>
+     */
     public static function getInstance()
     {
-        if (null === self::$instance) {
-            self::$instance = new Gutenberg();
+        if (null === self::$_instance) {
+            self::$_instance = new Gutenberg();
         }
 
-        return self::$instance;
+        return self::$_instance;
     }
 
+    /**
+     * Initializes the Gutenberg Class
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Cédric Bontems <dev@oxyprops.com>
+     */
     public function register()
     {
         if (isset(get_option('oxyprops_lite')['oxyprops_lite_gutenberg_fix'])) {
@@ -31,6 +72,14 @@ class Gutenberg extends BaseController
         }
     }
 
+    /**
+     * Removes Gutenberg default styles and SVG presets
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Cédric Bontems <dev@oxyprops.com>
+     */
     public function dequeueGutenbergGloablStyles()
     {
         // Remove WP CSS variables
