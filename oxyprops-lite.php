@@ -1,18 +1,23 @@
 <?php
-
 /**
- * OxyProps Lite.
+ * OxyProps Lite WordPress Plugin
+ * Brings Open Props to your WordPress Site.
+ * php version 7.4.29
  *
- * @see              https://lite.oxyprops.com
- * @since             1.0.0
+ * @category PluginMain
+ * @package  OxyPropsLite
+ * @author   Cédric Bontems <dev@oxyprops.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://lite.oxyprops.com OxyProps Lite Website
+ * @since    1.0.0
  *
  * @wordpress-plugin
  * Plugin Name:       OxyProps Lite
  * Plugin URI:        https://lite.oxyprops.com
  * Description:       Open Props CSS Custom properties for WordPress users.
- * Version:           1.0.0-alpha01
+ * Version:           0.9.1
  * Requires at least: 5.6
- * Requires PHP:      7.2
+ * Requires PHP:      7.4
  * Author:            The Web Forge
  * Author URI:        https://thewebforge.dev
  * License:           MIT
@@ -48,17 +53,31 @@ if (!defined('ABSPATH')) {
 
 // Simplify our lives with Composer Autoload
 if (file_exists(dirname(__FILE__).'/vendor/autoload.php')) {
-    require_once dirname(__FILE__).'/vendor/autoload.php';
+    include_once dirname(__FILE__).'/vendor/autoload.php';
 }
 
-// Run stuff necessary for plugin activation
+/**
+ * Run necessary stuff during plugin activation
+ *
+ * @return void
+ *
+ * @since  1.0.0
+ * @author Cédric Bontems <dev@oxyprops.com>
+ */
 function activateOxyPropsLite()
 {
     Inc\Base\Activate::activate();
 }
 register_activation_hook(__FILE__, 'activateOxyPropsLite');
 
-// Run stuff necessary for plugin deactivation
+/**
+ * Run necessary stuff during plugin deactivation
+ *
+ * @return void
+ *
+ * @since  1.0.0
+ * @author Cédric Bontems <dev@oxyprops.com>
+ */
 function deactivateOxyPropsLite()
 {
     Inc\Base\Deactivate::deactivate();
@@ -69,3 +88,20 @@ register_deactivation_hook(__FILE__, 'deactivateOxyPropsLite');
 if (class_exists('Inc\\Init')) {
     Inc\Init::registerServices();
 }
+
+// Simplify our lives with Composer Autoload
+if (file_exists(
+    dirname(__FILE__).
+    '/vendor/plugin-update-checker/plugin-update-checker.php'
+)
+) {
+    include_once dirname(__FILE__).
+    '/vendor/plugin-update-checker/plugin-update-checker.php';
+}
+
+$MyUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+    'https://lite.oxyprops.com/wp-content/uploads/update/'.
+    '?action=get_metadata&slug=oxyprops-lite',
+    __FILE__,
+    'oxyprops-lite'
+);
