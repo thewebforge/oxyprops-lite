@@ -6,6 +6,7 @@ module.exports = {
   entry: {
     frontend: "./src/js/frontend.js",
     backend: "./src/js/backend.js",
+    normalize: "./src/js/normalize.js",
   },
   output: {
     filename: "[name].js",
