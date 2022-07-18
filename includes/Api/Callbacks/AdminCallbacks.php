@@ -1,68 +1,89 @@
 <?php
-
 /**
- * OxyProps Lite.
+ * Admin Callbacks
+ * Callbacks for admin.
+ * php version 7.4.29
  *
- * @see              https://lite.oxyprops.com
- * @since             1.0.0
+ * @category Callbacks
+ * @package  OxyPropsLite
+ * @author   Cédric Bontems <dev@oxyprops.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://lite.oxyprops.com OxyProps Lite Website
+ * @since    1.0.0
  */
 
 namespace Inc\Api\Callbacks;
 
 use Inc\Base\BaseController;
 
+/**
+ * Admin Callbacks Class
+ * Callbacks for plugin administration
+ * php version 7.4.29
+ *
+ * @category Callbacks
+ * @package  OxyPropsLite
+ * @author   Cédric Bontems <dev@oxyprops.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://lite.oxyprops.com OxyProps Lite Website
+ * @since    1.0.0
+ */
 class AdminCallbacks extends BaseController
 {
-    private static $instance;
+    /**
+     * Stores the Admin Callbacks Singleton.
+     *
+     * @var object
+     *
+     * @since  1.0.0
+     * @author Cédric Bontems <dev@oxyprops.com>
+     */
+    private static $_instance;
 
+    /**
+     * Returns the Admin Callbacks Singleton.
+     *
+     * @return object Instance
+     *
+     * @since  1.0.0
+     * @author Cédric Bontems <dev@oxyprops.com>
+     */
     public static function getInstance()
     {
-        if (null === self::$instance) {
-            self::$instance = new AdminCallbacks();
+        if (null === self::$_instance) {
+            self::$_instance = new AdminCallbacks();
         }
 
-        return self::$instance;
+        return self::$_instance;
     }
 
+    /**
+     * Returns the Admin Dashboard template
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Cédric Bontems <dev@oxyprops.com>
+     */
     public function adminDashboard()
     {
-        return require_once "{$this->pluginPath}/templates/dashboard.php";
+        return include_once "{$this->pluginPath}/templates/dashboard.php";
     }
 
-    public function cptDashboard()
-    {
-        return require_once "{$this->pluginPath}/templates/cpt.php";
-    }
-
-    public function packagesDashboard()
-    {
-        return require_once "{$this->pluginPath}/templates/packages.php";
-    }
-
-    public function taxonomiesDashboard()
-    {
-        return require_once "{$this->pluginPath}/templates/taxonomies.php";
-    }
-
-    public function widgetsDashboard()
-    {
-        return require_once "{$this->pluginPath}/templates/widgets.php";
-    }
-
+    /**
+     * Echoes the Settings Master Section
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Cédric Bontems <dev@oxyprops.com>
+     */
     public function oxypropsLiteMasterSection()
     {
-        _e('Choose which assets you want OxyProps Lite to load, and how you want them loaded', 'oxyprops_lite');
-    }
-
-    public function oxypropsLiteFieldTextExample()
-    {
-        $value = esc_attr(get_option('text-example'));
-        echo '<input type="text" class="regular-text" name="text_example" value="'.$value.'" placeholder="'._e('Your text here', 'oxyprops_lite').'"/>';
-    }
-
-    public function oxypropsLiteFieldFirstName()
-    {
-        $value = esc_attr(get_option('first-name'));
-        echo '<input type="text" class="regular-text" name="first_name" value="'.$value.'" placeholder="First Name"/>';
+        _e(
+            'Choose which assets you want OxyProps Lite to load,'.
+            ' and how you want them loaded',
+            'oxyprops_lite'
+        );
     }
 }

@@ -1,34 +1,83 @@
 <?php
-
 /**
- * OxyProps Lite.
+ * Packages Callbacks
+ * Callbacks for Packages.
+ * php version 7.4.29
  *
- * @see              https://lite.oxyprops.com
- * @since             1.0.0
+ * @category Callbacks
+ * @package  OxyPropsLite
+ * @author   Cédric Bontems <dev@oxyprops.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://lite.oxyprops.com OxyProps Lite Website
+ * @since    1.0.0
  */
 
 namespace Inc\Api\Callbacks;
 
 use Inc\Base\BaseController;
 
+/**
+ * Packages Callbacks Class
+ * Callbacks for Packages.
+ * php version 7.4.29
+ *
+ * @category Callbacks
+ * @package  OxyPropsLite
+ * @author   Cédric Bontems <dev@oxyprops.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://lite.oxyprops.com OxyProps Lite Website
+ * @since    1.0.0
+ */
 class PackagesCallbacks extends BaseController
 {
-    private static $instance;
+    /**
+     * Stores the Packages Callbacks Singleton.
+     *
+     * @var object
+     *
+     * @since  1.0.0
+     * @author Cédric Bontems <dev@oxyprops.com>
+     */
+    private static $_instance;
 
+    /**
+     * Returns the Packages Callbacks Singleton.
+     *
+     * @return object Instance
+     *
+     * @since  1.0.0
+     * @author Cédric Bontems <dev@oxyprops.com>
+     */
     public static function getInstance()
     {
-        if (null === self::$instance) {
-            self::$instance = new PackagesCallbacks();
+        if (null === self::$_instance) {
+            self::$_instance = new PackagesCallbacks();
         }
 
-        return self::$instance;
+        return self::$_instance;
     }
 
+    /**
+     * Returns the Packages Dashboard template
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Cédric Bontems <dev@oxyprops.com>
+     */
     public function packagesDashboard()
     {
         return require_once "{$this->pluginPath}/templates/packages.php";
     }
 
+    /**
+     * Echoes the Main Packages Sections
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Cédric Bontems <dev@oxyprops.com>
+     */
     public function oxypropsLiteMainPackagesSection()
     {
         ?>
@@ -39,6 +88,14 @@ class PackagesCallbacks extends BaseController
         <?php
     }
 
+    /**
+     * Echoes the Colors Packages Sections
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Cédric Bontems <dev@oxyprops.com>
+     */
     public function oxypropsLiteColorPackagesSection()
     {
         ?>
@@ -49,6 +106,14 @@ class PackagesCallbacks extends BaseController
         <?php
     }
 
+    /**
+     * Echoes the HSL Colors Packages Sections
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Cédric Bontems <dev@oxyprops.com>
+     */
     public function oxypropsLiteColorHslPackagesSection()
     {
         ?>
