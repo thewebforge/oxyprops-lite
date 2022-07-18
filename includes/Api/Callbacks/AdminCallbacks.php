@@ -26,7 +26,7 @@ class AdminCallbacks extends BaseController
 
     public function adminDashboard()
     {
-        return require_once "{$this->pluginPath}/templates/admin.php";
+        return require_once "{$this->pluginPath}/templates/dashboard.php";
     }
 
     public function cptDashboard()
