@@ -36,14 +36,19 @@ class Helpers
 
     public static function getFullBundle()
     {
-        $targetFile = plugin_dir_path(dirname(__FILE__, 2)).self::$open_props.'open-props.op-lite.min.css';
+        $str = '';
+        $mainFile = plugin_dir_path(dirname(__FILE__, 2)).self::$open_props.'open-props.op-lite.min.css';
+        $hslFile = plugin_dir_path(dirname(__FILE__, 2)).self::$open_props.'colors-hsl.op-lite.min.css';
 
-        return self::readFile($targetFile);
+        $str .= self::readFile($mainFile);
+        $str .= self::readFile($hslFile);
+
+        return $str;
     }
 
     public static function getNormalizeStyles()
     {
-        $targetFile = plugin_dir_path(dirname(__FILE__, 2)).self::$open_props.'normalize.op-lite.min.css';
+        $targetFile = plugin_dir_path(dirname(__FILE__, 2)).self::$open_props.'../normalize.min.css';
 
         return self::readFile($targetFile);
     }
