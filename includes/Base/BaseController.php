@@ -32,7 +32,9 @@ class BaseController
     public $adminSettings = [];
     public $name;
     public $plugin;
+    public $pluginData;
     public $pluginFile;
+    public $pluginName;
     public $pluginPath;
     public $pluginUrl;
     public $slug;
@@ -49,8 +51,6 @@ class BaseController
      */
     public function __construct()
     {
-        $this->version = '1.0.0-alpha01';
-        $this->textDomain = 'oxyprops_lite';
         $this->pluginPath = plugin_dir_path(dirname(__FILE__, 2));
         $this->pluginUrl = plugin_dir_url(dirname(__FILE__, 2));
         $this->plugin = self::_pluginBasename(3);
@@ -77,6 +77,14 @@ class BaseController
         'EwOC4wNyIgeT0iMzMwLjIyIiBjbGFzcz0iZCIgcng9IjU0LjA0IiByeT0iNTQuMDQiIC8+CiAg'.
         'ICAgIDxyZWN0IGZpbGw9ImJsYWNrIiB3aWR0aD0iMjMwIiBoZWlnaHQ9IjEwOC4wNyIgeD0iMz'.
         'EwIiB5PSIzMzAuNTciIGNsYXNzPSJkIiByeD0iNTQuMDQiIHJ5PSI1NC4wNCIgLz4KPC9zdmc+';
+        $this->pluginData = get_plugin_data(
+            $this->pluginFile,
+            false,
+            false
+        );
+        $this->pluginName = $this->pluginData['Name'];
+        $this->version = $this->pluginData['Version'];
+        $this->textDomain = $this->pluginData['TextDomain'];
     }
 
     /**
