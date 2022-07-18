@@ -7,7 +7,7 @@
  * @since             1.0.0
  */
 
-namespace Inc\Pages;
+namespace Inc\Dashboard;
 
 use Inc\Api\Callbacks\FieldsCallbacks;
 use Inc\Api\Callbacks\PackagesCallbacks;

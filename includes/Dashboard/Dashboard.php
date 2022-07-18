@@ -1,19 +1,21 @@
 <?php
-
 /**
- * OxyProps Lite.
+ * Create the dashboard page for OxyProps Lite.
  *
  * @see              https://lite.oxyprops.com
  * @since             1.0.0
  */
 
-namespace Inc\Pages;
+namespace Inc\Dashboard;
 
 use Inc\Api\Callbacks\AdminCallbacks;
 use Inc\Api\Callbacks\FieldsCallbacks;
 use Inc\Api\SettingsApi;
 use Inc\Base\BaseController;
 
+/**
+ * The OxyProps Lite Dashboard Class.
+ */
 class Dashboard extends BaseController
 {
     public $settings;
@@ -34,7 +36,6 @@ class Dashboard extends BaseController
     public function register()
     {
         $this->settings = SettingsApi::getInstance();
-        // $this->settings = new SettingsApi();
         $this->callbacks = AdminCallbacks::getInstance();
         $this->callbacksFields = FieldsCallbacks::getInstance();
 
@@ -42,6 +43,7 @@ class Dashboard extends BaseController
         $this->setAdminSettings();
         $this->setAdminSections();
         $this->setAdminFields();
+
         $this->settings->addPages($this->pages)->withSubPage('Dashboard')->registerSetting();
     }
 
@@ -49,8 +51,8 @@ class Dashboard extends BaseController
     {
         $this->pages = [
             [
-                'page_title' => 'OxyProps Lite',
-                'menu_title' => 'OxyProps Lite',
+                'page_title' => __('OxyProps Lite', $this->textDomain),
+                'menu_title' => __('OxyProps Lite', $this->textDomain),
                 'capability' => 'manage_options',
                 'menu_slug' => 'oxyprops_lite',
                 'callback' => [$this->callbacks, 'adminDashboard'],
