@@ -42,12 +42,13 @@ class Enqueue extends BaseController
         // enqueue our front-end styles
         if (!$this->currentOptions['oxyprops_lite_bundle']) {
             wp_enqueue_style('oxyprops-props', $this->pluginUrl.'assets/css/open-props/open-props.op-lite.min.css', $this->version);
+            wp_enqueue_style('oxyprops-hsl-props', $this->pluginUrl.'assets/css/open-props/colors-hsl.op-lite.min.css', $this->version);
         } else {
             Helpers::enqueueSelectedPackages($this->pluginUrl, $this->version);
         }
 
         if ($this->currentOptions['oxyprops_lite_normalize']) {
-            wp_enqueue_style('oxyprops-normalize', $this->pluginUrl.'assets/css/open-props/normalize.op-lite.min.css', $this->version);
+            wp_enqueue_style('oxyprops-normalize', $this->pluginUrl.'assets/css/normalize.min.css', $this->version);
         }
 
         // enqueue our front-end scripts
