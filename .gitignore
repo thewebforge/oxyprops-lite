@@ -181,3 +181,5 @@ open-props-for-opl/
 zipped
 assets
 assets/css
+vendor/plugin-update-checker
+assets/css/open-props
