@@ -1,14 +1,15 @@
 <?php
 /**
- * OxyProps Lite
+ * OxyProps Blank Index
+ * Blank file for security in case the folder is accessed directly
+ * php version 7.4.29
  *
- * @link              https://oxyprops.com
- * @since             1.0.0
- * @package           OxyProps_Lite
- * 
- * Blank file for security in case the forlder
- * is accessed directly
- * 
+ * @category Base
+ * @package  OxyPropsLite
+ * @author   Cédric Bontems <dev@oxyprops.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://lite.oxyprops.com OxyProps Lite Website
+ * @since    1.0.0
  */
 
 // Silence is golden.
