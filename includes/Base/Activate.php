@@ -1,24 +1,57 @@
 <?php
-
 /**
- * OxyProps Lite.
+ * Activate
+ * Manages plugin activation.
+ * php version 7.4.29
  *
- * @see              https://lite.oxyprops.com
- * @since             1.0.0
+ * @category Base
+ * @package  OxyPropsLite
+ * @author   Cédric Bontems <dev@oxyprops.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://lite.oxyprops.com OxyProps Lite Website
+ * @since    1.0.0
  */
 
 namespace Inc\Base;
 
+/**
+ * Activate Class
+ * Manages plugin activation.
+ * php version 7.4.29
+ *
+ * @category Base
+ * @package  OxyPropsLite
+ * @author   Cédric Bontems <dev@oxyprops.com>
+ * @license  https://opensource.org/licenses/MIT MIT
+ * @link     https://lite.oxyprops.com OxyProps Lite Website
+ * @since    1.0.0
+ */
 class Activate
 {
+    /**
+     * Sets default settings during plugin activation
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Cédric Bontems <dev@oxyprops.com>
+     */
     public static function activate()
     {
-        self::setDefaultParameters();
-        self::setDefaultPackages();
+        self::_setDefaultParameters();
+        self::_setDefaultPackages();
         flush_rewrite_rules();
     }
 
-    private static function setDefaultParameters()
+    /**
+     * Registers default plugin settings in the database
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Cédric Bontems <dev@oxyprops.com>
+     */
+    private static function _setDefaultParameters()
     {
         if (get_option('oxyprops_lite')) {
             return;
@@ -32,7 +65,15 @@ class Activate
         update_option('oxyprops_lite', $default);
     }
 
-    private static function setDefaultPackages()
+    /**
+     * Registers default packages settings in the database
+     *
+     * @return void
+     *
+     * @since  1.0.0
+     * @author Cédric Bontems <dev@oxyprops.com>
+     */
+    private static function _setDefaultPackages()
     {
         if (get_option('oxyprops_lite_packages')) {
             return;
