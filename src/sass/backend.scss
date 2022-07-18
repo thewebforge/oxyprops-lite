@@ -67,13 +67,16 @@ h1.op-heading {
     stroke: none;
 
     #op-svg-logo__dash1 {
-      fill: var(--o-indigo-7);
+      fill: var(--o-indigo-9);
     }
     #op-svg-logo__dash2 {
-      fill: var(--o-indigo-7);
+      fill: var(--o-indigo-9);
+    }
+    #op-svg-logo__bubble {
+      fill: var(--o-indigo-9);
     }
     #op-svg-logo__ring {
-      fill: var(--o-indigo-5);
+      fill: var(--o-indigo-3);
     }
 
   }
