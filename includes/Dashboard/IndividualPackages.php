@@ -43,7 +43,7 @@ class IndividualPackages extends BaseController
         $this->callbacks = PackagesCallbacks::getInstance();
         $this->callbacksFields = FieldsCallbacks::getInstance();
 
-        $this->setSubPages();
+        // $this->setSubPages();
         $this->setPackagesSettings();
         $this->setPackagesSections();
         $this->setPackagesFields();
@@ -51,25 +51,35 @@ class IndividualPackages extends BaseController
         $this->settings->addSubPages($this->subPages)->registerSetting();
     }
 
-    public function setSubPages()
-    {
-        $this->subPages = [
-            [
-                'parent_slug' => 'oxyprops_lite',
-                'page_title' => 'Individual Packages',
-                'menu_title' => 'Packages',
-                'capability' => 'manage_options',
-                'menu_slug' => 'oxyprops_lite_pkg',
-                'callback' => [$this->callbacks, 'packagesDashboard'],
-            ],
-        ];
-    }
+    // public function setSubPages()
+    // {
+    //     $this->subPages = [
+    //         [
+    //             'parent_slug' => 'oxyprops_lite',
+    //             'page_title' => 'Individual Packages',
+    //             'menu_title' => 'Packages',
+    //             'capability' => 'manage_options',
+    //             'menu_slug' => 'oxyprops_lite_pkg',
+    //             'callback' => [$this->callbacks, 'packagesDashboard'],
+    //         ],
+    //     ];
+    // }
 
     public function setPackagesSettings()
     {
         $args = [
             [
-                'option_group' => 'oxyprops_lite_packages_settings',
+                'option_group' => 'oxyprops_lite_packages_settings1',
+                'option_name' => 'oxyprops_lite_packages',
+                'callback' => [$this->callbacksFields, 'sanitizedPackages'],
+            ],
+            [
+                'option_group' => 'oxyprops_lite_packages_settings2',
+                'option_name' => 'oxyprops_lite_packages',
+                'callback' => [$this->callbacksFields, 'sanitizedPackages'],
+            ],
+            [
+                'option_group' => 'oxyprops_lite_packages_settings3',
                 'option_name' => 'oxyprops_lite_packages',
                 'callback' => [$this->callbacksFields, 'sanitizedPackages'],
             ],
@@ -82,21 +92,21 @@ class IndividualPackages extends BaseController
         $args = [
             [
                 'id' => 'oxyprops_lite_main_packages_section',
-                'title' => 'Main',
-                'callback' => [$this->callbacks, 'oxypropsLiteMainPackagesSection'],
-                'page' => 'oxyprops_lite_pkg',
+                'title' => null,
+                'callback' => '__return_null',
+                'page' => 'oxyprops_lite_pkg1',
             ],
             [
                 'id' => 'oxyprops_lite_individual_colors_section',
-                'title' => 'Colors',
-                'callback' => [$this->callbacks, 'oxypropsLiteColorPackagesSection'],
-                'page' => 'oxyprops_lite_pkg',
+                'title' => null,
+                'callback' => '__return_null',
+                'page' => 'oxyprops_lite_pkg2',
             ],
             [
                 'id' => 'oxyprops_lite_individual_colors_hsl_section',
-                'title' => 'Colors Hsl',
-                'callback' => [$this->callbacks, 'oxypropsLiteColorHslPackagesSection'],
-                'page' => 'oxyprops_lite_pkg',
+                'title' => null,
+                'callback' => '__return_null',
+                'page' => 'oxyprops_lite_pkg3',
             ],
         ];
         $this->settings->addSections($args);
@@ -106,11 +116,23 @@ class IndividualPackages extends BaseController
     {
         $args = [];
         foreach ($this->packagesSettings as $key => $parameters) {
+            $column = '';
+            switch ($parameters['section']) {
+            case 'main_packages':
+                $column = '1';
+                break;
+            case 'individual_colors':
+                $column = '2';
+                break;
+            case 'individual_colors_hsl':
+                $column = '3';
+                break;
+            }
             $args[] = [
                 'id' => $key,
                 'title' => $parameters['description'],
                 'callback' => [$this->callbacksFields, 'checkboxField'],
-                'page' => 'oxyprops_lite_pkg',
+                'page' => 'oxyprops_lite_pkg'.$column,
                 'section' => 'oxyprops_lite_'.$parameters['section'].'_section',
                 'args' => [
                     'option_name' => 'oxyprops_lite_packages',
