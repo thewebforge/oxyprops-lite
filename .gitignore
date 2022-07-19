@@ -183,3 +183,5 @@ assets
 assets/css
 vendor/plugin-update-checker
 assets/css/open-props
+assets/js/backend.js
+assets/js/frontend.js
