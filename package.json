@@ -1,6 +1,6 @@
 {
   "name": "oxyprops-lite",
-  "version": "0.9.0-β",
+  "version": "0.9.0-beta-1",
   "description": "Open Props CSS Custom properties for WordPress users",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "copy:includes": "copyfiles './includes/**/*' dist/oxyprops-lite",
     "copy:templates": "copyfiles './templates/**/*' dist/oxyprops-lite",
     "copy:vendor": "copyfiles './vendor/**/*' dist/oxyprops-lite",
-    "copy:root": "copyfiles *.php dist/oxyprops-lite copyfiles *.txt dist/oxyprops-lite copyfiles *.md dist/oxyprops-lite copyfiles LICENSE dist/oxyprops-lite",
+    "copy:root": "copyfiles *.php dist/oxyprops-lite copyfiles *.txt dist/oxyprops-lite copyfiles LICENSE dist/oxyprops-lite",
     "copy": "concurrently npm:copy:*",
     "zippack": "zip-build dist zipped -t %NAME%.%VERSION%.%EXT%",
     "build:final": "concurrently npm:copy:* -m 25 && npm run zippack"

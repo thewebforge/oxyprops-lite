@@ -15,9 +15,9 @@
  * Plugin Name:       OxyProps Lite
  * Plugin URI:        https://lite.oxyprops.com
  * Description:       Open Props CSS Custom properties for WordPress users.
- * Version:           0.9.1
+ * Version:           0.9.0-beta-1
  * Requires at least: 5.6
- * Requires PHP:      7.4
+ * Requires PHP:      7.2
  * Author:            The Web Forge
  * Author URI:        https://thewebforge.dev
  * License:           MIT

@@ -77,6 +77,11 @@ class BaseController
         'EwOC4wNyIgeT0iMzMwLjIyIiBjbGFzcz0iZCIgcng9IjU0LjA0IiByeT0iNTQuMDQiIC8+CiAg'.
         'ICAgIDxyZWN0IGZpbGw9ImJsYWNrIiB3aWR0aD0iMjMwIiBoZWlnaHQ9IjEwOC4wNyIgeD0iMz'.
         'EwIiB5PSIzMzAuNTciIGNsYXNzPSJkIiByeD0iNTQuMDQiIHJ5PSI1NC4wNCIgLz4KPC9zdmc+';
+        
+        if (!function_exists('get_plugin_data')) {
+            include_once ABSPATH . 'wp-admin/includes/plugin.php';
+        }
+        
         $this->pluginData = get_plugin_data(
             $this->pluginFile,
             false,
