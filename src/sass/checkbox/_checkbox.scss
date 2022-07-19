@@ -1,14 +1,8 @@
 
-$on: var(--o-indigo-6);
-$bgOn: var(--o-indigo-2);
-$bgOff: var(--o-gray-0);
-$off: var(--o-gray-4);
-
-$on: #2271b1;
+$on: var(--o-logo-2);
 $bgOn: white;
 $bgOff: white;
-$off: var(--o-gray-4);
-
+$off: var(--o-surface-4);
 
 @mixin center {
     position: absolute;
