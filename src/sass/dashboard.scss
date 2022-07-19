@@ -1,0 +1,331 @@
+@use "./checkbox";
+body {
+  --o-gray-10: hsl(210 10% 12%);
+  --o-violet-10: hsl(255 32% 22%);
+
+  --o-surface-1: var(--o-gray-0);
+  --o-surface-2: var(--o-gray-1);
+  --o-surface-3: var(--o-gray-2);
+  --o-surface-4: var(--o-gray-3);
+  --o-brand-surface-1: hsl(var(--o-violet-1-hsl) / 50%);
+  --o-text-1: var(--o-gray-9);
+  --o-text-2: var(--o-gray-7);
+  --o-logo-1: var(--o-yellow-7);
+  --o-logo-2: var(--o-violet-5);
+  --o-link: var(--o-pink-7);
+  --o-link-hover: var(--o-pink-9);
+
+  background-color: var(--o-surface-1);
+  color: var(--o-text-2);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --o-surface-1: var(--o-gray-10);
+    --o-surface-2: var(--o-gray-9);
+    --o-surface-3: var(--o-gray-8);
+    --o-surface-4: var(--o-gray-7);
+    --o-brand-surface-1: var(--o-violet-10);
+    --o-text-1: var(--o-gray-0);
+    --o-text-2: var(--o-gray-5);
+    --o-logo-1: var(--o-yellow-3);
+    --o-logo-2: var(--o-violet-4);
+    --o-link: var(--o-pink-3);
+    --o-link-hover: var(--o-pink-1);
+  }
+}
+
+ul#adminmenu a.wp-has-current-submenu:after,
+ul#adminmenu > li.current > a.current:after {
+  border-right-color: var(--o-surface-1);
+}
+
+.wrap a {
+  color: var(--o-link);
+  text-decoration: none;
+  &:hover {
+    color: var(--o-link-hover);
+	text-decoration-line: underline;
+	text-decoration-style: dotted;
+	text-decoration-thickness: .5px;
+	text-underline-offset: 2px;
+  }
+}
+
+.wrap > h1,
+#poststuff h2,
+.welcome-panel h2,
+.welcome-panel h3,
+.about-wrap h3,
+label {
+  color: var(--o-text-1);
+}
+
+.welcome-panel .welcome-panel-column-container {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.welcome-panel-column-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.welcome-panel p {
+	max-inline-size: var(--o-size-content-3);
+  }
+
+#welcome-panel.opl-welcome-panel {
+  background-color: var(--o-brand-surface-1);
+}
+
+.welcome-panel-content {
+  min-height: unset;
+}
+
+.welcome-panel-header {
+  --about-header-image-width: 600px;
+  padding-block: var(--o-size-4);
+}
+
+.welcome-panel-header-image {
+  top: -2rem;
+}
+
+.welcome-panel .welcome-panel-column-container {
+  background-color: var(--o-surface-2);
+}
+
+[class*=welcome-panel-icon] {
+	background-color: var(--o-logo-1);
+	background-size: 30px 30px;
+}
+
+.welcome-panel-icon-docs {
+	background-image: url('https://api.iconify.design/iconoir/book.svg?color=black');
+}
+.welcome-panel-icon-facebook {
+	background-image: url('https://api.iconify.design/iconoir/facebook-squared.svg?color=black');
+}
+.welcome-panel-icon-youtube {
+	background-image: url('https://api.iconify.design/iconoir/youtube.svg?color=black');
+}
+.welcome-panel-icon-upgrade {
+	background-image: url('https://api.iconify.design/iconoir/1st-medal.svg?color=black');
+}
+
+.op-upgrade {
+	border-radius: var(--o-radius-1);
+	outline-offset: .75rem;
+	outline-style: dotted;
+	outline-color: var(--o-logo-2);
+	outline-width: 2px;
+}
+
+.about-wrap {
+  padding-right: 20px;
+}
+.about-wrap.about-wrap .wp-badge {
+  background-image: url(../images/op-logo.svg);
+  background-color: #fff;
+  color: #222;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.wp-badge:hover {
+  text-decoration: none;
+}
+
+.about-buttons .dashicons {
+  position: relative;
+  top: 5px;
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+}
+
+#poststuff .nav-tab-wrapper {
+  padding: 0;
+  margin-top: 60px;
+}
+
+.nav-tab {
+	background-color: var(--o-surface-1);
+	color: var(--o-text-2);
+}
+.nav-tab-active,
+.nav-tab-active:focus,
+.nav-tab:focus,
+.nav-tab-active:active,
+.nav-tab:active,
+.nav-tab:hover,
+.nav-tab-active:hover {
+	background-color: var(--o-surface-3);
+	color: var(--o-text-1);
+	text-decoration: none;
+}
+
+.nav-tab-active {
+  box-shadow: none;
+}
+// .nav-tab,
+// .wrap h2.nav-tab-wrapper {
+// 	border-color: var(--o-text-2);
+// }
+
+.nav-tab-active {
+	border-bottom: none;
+  }
+
+.gt-tab-pane {
+  display: none;
+  padding-top: 24px;
+}
+.gt-tab-pane .about-description.about-description {
+  margin-top: 0;
+}
+
+.gt-is-active {
+  display: block;
+}
+
+.two,
+.three {
+  display: flex;
+}
+.two .col + .col,
+.three .col + .col{
+  margin-left: 40px;
+}
+.two h3,
+.three h3 {
+  margin-top: 2em;
+}
+.two h3:first-child,
+.three h3:first-child {
+  margin-top: 0;
+}
+.two img,
+.three img {
+  display: block;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+.screenshot {
+  display: block;
+  margin: 3em auto;
+}
+.two .col {
+  flex: 1;
+  max-width: 50%;
+}
+.three .col {
+  flex: 1;
+  max-width: 33%;
+}
+.col ul {
+  font-size: 14px;
+  margin: 2em 0;
+}
+.col li a {
+  text-decoration: none;
+}
+
+/* Right column */
+// #post-body.columns-2 #postbox-container-1 {
+// 	position: fixed;
+// 	right: 320px;
+// 	top: 80px;
+// }
+
+@media (max-width: 1279px) {
+  #postbox-container-1 {
+    display: none;
+  }
+  #poststuff #post-body.columns-2 {
+    margin-right: 0;
+  }
+}
+
+/* Upgrade */
+.upgrade {
+  border: 3px dashed #82878c;
+  background: #fff;
+  padding: 15px;
+}
+.upgrade .dashicons {
+  color: #ef4836;
+  width: 26px;
+  height: 26px;
+  font-size: 30px;
+  position: relative;
+  top: -4px;
+  left: -5px;
+}
+.upgrade h3 {
+  margin: 0;
+}
+.upgrade li {
+  padding-left: 20px;
+  position: relative;
+}
+.upgrade svg {
+  width: 1em;
+  height: 1em;
+  fill: #0073aa;
+  position: absolute;
+  top: 4px;
+  left: 0;
+}
+
+.youtube-video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.youtube-video-container::after {
+  display: block;
+  content: "";
+  padding-top: 56.25%;
+}
+
+.youtube-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.wp-core-ui .button {
+    color: var(--o-link);
+    border-color: var(--o-link);
+    background: transparent;
+	&:hover  {
+		color: var(--o-link-hover);
+		border-color: var(--o-link-hover);
+		background: transparent;
+		text-decoration: none;
+	}
+}
+
+.wp-core-ui .button-primary {
+    background: var(--o-link);
+    border-color: var(--o-link);
+    color: var(--o-surface-1);
+
+	&:hover {
+		background: var(--o-link-hover);
+		border-color: var(--o-link-hover);
+		color: var(--o-surface-1);
+		text-decoration: none;
+	}
+}
+
+#wpfooter p {
+	color: var(--o-text-2);
+}
