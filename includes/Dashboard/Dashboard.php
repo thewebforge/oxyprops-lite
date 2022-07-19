@@ -250,13 +250,12 @@ class Dashboard extends BaseController
                 __(
                     'Please rate <strong>OxyProps Lite</strong> '.
                     '<a href="%1$s" target="_blank">&#9733;&#9733;&#9733;&#9733;'.
-                    '&#9733;</a> on <a href="%1$s" target="_blank">WordPress.org'.
+                    '&#9733;</a> on <a href="%1$s" target="_blank">our Facebook Page'.
                     '</a> to help us spread the word. Thank you from the OxyProps'.
                     ' team!',
                     $this->textDomain
                 ),
-                'https://wordpress.org/support/view/plugin-reviews/'.
-                'meta-box?filter=5#new-post'
+                'https://www.facebook.com/oxyprops/reviews/'
             )
         );
     }

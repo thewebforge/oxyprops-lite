@@ -118,16 +118,39 @@ class AdminCallbacks extends BaseController
                     </h2>
                     <p>
                     <?php
-                    esc_html_e('OxyProps Lite is a free and open source WordPress plugin that makes Open Props Supercharged CSS Variables available for styling your website. Follow the instruction below to get started!', $this->textDomain);
+                    esc_html_e('OxyProps Lite is a free and open source WordPress plugin brings Open Props Supercharged CSS Variables to your WordPress environment for styling your website. Follow the instruction below to get started!', $this->textDomain);
                     ?>
                     </p>
                     <p>
-                        <a href="https://feedback.oxyprops.com/changelog?utm_source=WordPress&utm_medium=link&utm_campaign=plugin">
+                        <?php
+                        esc_html_e('Learn more about', $this->textDomain);
+                        ?>
+                        <a
+                        target="_blank"
+                        href="https://lite.oxyprops.com?utm_source=WordPress&utm_medium=link&utm_campaign=plugin"
+                        >
                         <?php
                         echo esc_html(
                             sprintf(
-                                __('Learn more about the %s version', $this->textDomain),
+                                __('OxyProps Lite v%s', $this->textDomain),
                                 $this->version
+                            )
+                        );
+                        ?>
+                        </a>
+                        <?php
+                        esc_html_e('and', $this->textDomain);
+                        ?>
+                        <a
+                        target="_blank"
+                        rel="noopener noreferer"
+                        href="https://open-props.style/"
+                        >
+                        <?php
+                        echo esc_html(
+                            sprintf(
+                                __('Open Props v%s', $this->textDomain),
+                                '1.4'
                             )
                         );
                         ?>
@@ -135,7 +158,7 @@ class AdminCallbacks extends BaseController
                     </p>
                 </div>
                 <div class="welcome-panel-column-container">
-                <div class="welcome-panel-column">
+                    <div class="welcome-panel-column">
                         <div class="welcome-panel-icon-upgrade"></div>
                         <div class="welcome-panel-column-content op-upgrade">
                             <h3>
@@ -145,12 +168,15 @@ class AdminCallbacks extends BaseController
                             </h3>
                             <p>
                             <?php
-                            esc_html_e('Please upgrade to the PRO version and unlock absolutely awesome time saving features.', $this->textDomain);
+                            esc_html_e('Upgrade to the OxyProps PRO plan and unlock a bunch of awesome features to save time and stremaline your workflow.', $this->textDomain);
                             ?>
                             </p>
-                            <a class="button button-primary" href="https://oxyprops-lite.test/wp-admin/post-new.php?post_type=page">
+                            <a
+                            class="button button-primary"
+                            target="_blank"
+                            href="https://oxyprops.com/shop?utm_source=WordPress&utm_medium=link&utm_campaign=plugin">
                             <?php
-                            esc_html_e('Get OxyProps PRO now', $this->textDomain);
+                            esc_html_e('Get OxyProps PRO today', $this->textDomain);
                             ?> &rarr;
                             </a>
                         </div>
@@ -160,15 +186,18 @@ class AdminCallbacks extends BaseController
                         <div class="welcome-panel-column-content">
                             <h3>
                             <?php
-                            esc_html_e('Documentation Site', $this->textDomain);
+                            esc_html_e('OxyProps Documentation', $this->textDomain);
                             ?>
                             </h3>
                             <p>
                             <?php
-                            esc_html_e('If you have questions about the plugin, the framework and the way to use it, check documentation!', $this->textDomain);
+                            esc_html_e('To learn more about the plugin, the concept of design tokens, the framework or the way to use it, check our documentation!', $this->textDomain);
                             ?>
                             </p>
-                            <a class="button" href="https://oxyprops-lite.test/wp-admin/post-new.php?post_type=page">
+                            <a
+                            class="button"
+                            target="_blank"
+                            href="https://docs.oxyprops.com?utm_source=WordPress&utm_medium=link&utm_campaign=plugin">
                             <?php
                             esc_html_e('Read Docs', $this->textDomain);
                             ?> &rarr;
@@ -185,10 +214,13 @@ class AdminCallbacks extends BaseController
                             </h3>
                             <p>
                             <?php
-                            esc_html_e('Join the OxyProps Users Community and engage discussion with awesome WordPress Professionals.', $this->textDomain);
+                            esc_html_e('Join the OxyProps Users Community and engage discussion with awesome WordPress Professionals from all over the world.', $this->textDomain);
                             ?>
                             </p>
-                            <a class="button" href="https://oxyprops-lite.test/wp-admin/post-new.php?post_type=page">
+                            <a
+                            class="button"
+                            target="_blank"
+                            href="https://www.facebook.com/groups/oxyprops">
                             <?php
                             esc_html_e('Join the Community', $this->textDomain);
                             ?> &rarr;
@@ -205,10 +237,13 @@ class AdminCallbacks extends BaseController
                             </h3>
                             <p>
                             <?php
-                            esc_html_e('Subscribe to OxyProps Youtube Channel for OxyProps, CSS & Web Design tutorials.', $this->textDomain);
+                            esc_html_e('Find video tutorials about using OxyProps, CSS tips and tricks & Web Design. And if you like them, don\'t forget to subscribe!', $this->textDomain);
                             ?>
                             </p>
-                            <a class="button" href="https://oxyprops-lite.test/wp-admin/post-new.php?post_type=page">
+                            <a 
+                            class="button"
+                            target="_blank"
+                            href="https://youtube.com/oxyprops">
                             <?php
                             esc_html_e('Watch Tutorials', $this->textDomain);
                             ?> &rarr;
@@ -239,7 +274,7 @@ class AdminCallbacks extends BaseController
             class="nav-tab nav-tab-active"
             >
             <?php
-            esc_html_e('Settings', $this->textDomain);
+            esc_html_e('Main Settings', $this->textDomain);
             ?>
             </a>
             <?php
@@ -249,17 +284,17 @@ class AdminCallbacks extends BaseController
                 href="#packages"
                 class="nav-tab">
                 <?php
-                esc_html_e('Packages', $this->textDomain);
+                esc_html_e('Select Packages', $this->textDomain);
                 ?>
-            </a>
-            <?php
+                </a>
+                <?php
             }
             ?>
             <a
             href="#getting-started"
             class="nav-tab">
             <?php
-            esc_html_e('Getting  Started', $this->textDomain);
+            esc_html_e('Getting Started', $this->textDomain);
             ?>
             </a>
             <a
@@ -272,7 +307,6 @@ class AdminCallbacks extends BaseController
         </h2>
         <?php
     }
-
 
     /**
      * Renders the Settings section of the dashboard
@@ -288,21 +322,7 @@ class AdminCallbacks extends BaseController
         <div id="settings" class="gt-tab-pane gt-is-active">
             <p class="about-description">
                 <?php
-                $allowedHtml = array(
-                    'a' => array(
-                        'href' => array(),
-                    ),
-                );
-                echo wp_kses(
-                    sprintf(
-                        __(
-                            'Still need help with Meta Box? We offer excellent support for you. But don\'t forget to check our <a href="%s">documentation</a> first.',
-                            $this->textDomain
-                        ),
-                        'https://docs.metabox.io?utm_source=WordPress&utm_medium=link&utm_campaign=plugin'
-                    ),
-                    $allowedHtml
-                );
+                esc_html_e('To keep things simple, OxyProps Lite just works "out of the box". But from here you can customize the way OxyProps Lite loads assets, and remove WordPress default CSS Variables and SVG presets if you want to.', $this->textDomain);
                 ?>
             </p>
             <div class="two">
@@ -339,12 +359,12 @@ class AdminCallbacks extends BaseController
                 <div class="col">
                     <h3>
                         <?php
-                        esc_html_e('Quick Start', $this->textDomain);
+                        esc_html_e('SetUp OxyProps Lite', $this->textDomain);
                         ?>
                     </h3>
                     <p>
                         <?php
-                        esc_html_e('Wanna see more features that transform your WordPress website into a powerful CMS? Check out some extensions below:', $this->textDomain);
+                        esc_html_e('Watch this short video to learn everything about the settings:', $this->textDomain);
                         ?>
                     <p>
                     <div class="youtube-video-container">
@@ -368,6 +388,11 @@ class AdminCallbacks extends BaseController
     {
         ?>
         <div id="packages" class="gt-tab-pane">
+            <p class="about-description">
+                <?php
+                esc_html_e('You chose to pick individual packages instead of loading the full bundle. Perfect! Just select the PropsPacks that will match your use case. If you select many, you may want to apply "Inline Styles" from the Main Settings for better performances.', $this->textDomain);
+                ?>
+            </p>
             <div class="three">
                 <div class="col">
                     <h3>
@@ -377,9 +402,9 @@ class AdminCallbacks extends BaseController
                     </h3>
                     <form method="POST" action="options.php">
                         <?php
+                        submit_button();
                         settings_fields('oxyprops_lite_packages_settings1');
                         do_settings_sections('oxyprops_lite_pkg1');
-                        submit_button();
                         ?>
 
                 </div>
@@ -391,9 +416,9 @@ class AdminCallbacks extends BaseController
                     </h3>
 
                         <?php
+                        submit_button();
                         settings_fields('oxyprops_lite_packages_settings2');
                         do_settings_sections('oxyprops_lite_pkg2');
-                        submit_button();
                         ?>
 
                 </div>
@@ -405,9 +430,9 @@ class AdminCallbacks extends BaseController
                     </h3>
 
                         <?php
+                        submit_button();
                         settings_fields('oxyprops_lite_packages_settings3');
                         do_settings_sections('oxyprops_lite_pkg3');
-                        submit_button();
                         ?>
                     </form>
                 </div>
@@ -433,14 +458,14 @@ class AdminCallbacks extends BaseController
                     <h3>
                         <?php
                         esc_html_e(
-                            'Getting Started With Online Generator', $this->textDomain
+                            'Using the Props', $this->textDomain
                         );
                         ?>
                     </h3>
                     <p>
                         <?php
                         esc_html_e(
-                            'Online Generator is a free tool to help you create and set up custom fields using a simple, friendly user interface. With it, you can add fields, set options and generate needed code that\'s ready to copy and paste.',
+                            'In this short video, we will have an overview of the available Props and see how to use them with or without a site builder.',
                             $this->textDomain
                         );
                         ?>
@@ -453,14 +478,14 @@ class AdminCallbacks extends BaseController
                 <h3>
                         <?php
                         esc_html_e(
-                            'Getting Started With Online Generator', $this->textDomain
+                            'What is Normalize?', $this->textDomain
                         );
                         ?>
                     </h3>
                     <p>
                         <?php
                         esc_html_e(
-                            'Online Generator is a free tool to help you create and set up custom fields using a simple, friendly user interface. With it, you can add fields, set options and generate needed code that\'s ready to copy and paste.',
+                            'OxyProps Lite includes a Normalize stylesheet adapted from Open Props Normalize to WordPress and Oxygen (Bricks soon) specifics.',
                             $this->textDomain
                         );
                         ?>
@@ -541,7 +566,7 @@ class AdminCallbacks extends BaseController
                     <p>
                         <?php
                         esc_html_e(
-                            'For users that have bought OxyProps Pro, the support is provided in the OxyProps Support forum. Any question will be answered within 48 business hours.',
+                            'For users that have bought OxyProps Pro, the support is provided by email. Use the contact form an make sure to provide your license email. Any question will be answered within 48 business hours.',
                             $this->textDomain
                         );
                         ?>
@@ -550,10 +575,10 @@ class AdminCallbacks extends BaseController
                         <a
                         class="button"
                         target="_blank"
-                        href="https://github.com/thewebforge/oxyprops-lite/issues"
+                        href="https://oxyprops.com/contact?utm_source=WordPress&utm_medium=link&utm_campaign=plugin"
                         >
                         <?php
-                        esc_html_e('Go to Support Forum', $this->textDomain);
+                        esc_html_e('Open a support request', $this->textDomain);
                         ?> &rarr;
                         </a>
                     </p>
@@ -638,23 +663,92 @@ class AdminCallbacks extends BaseController
     {
         ?>
         <div class="upgrade">
-	<h3><span class="dashicons dashicons-awards"></span> <?php esc_html_e( 'Upgrade to OxyProps PRO', $this->textDomain ); ?></h3>
-	<p><?php esc_html_e( 'Please upgrade to the PRO version to unlock absolutely awesome features.', $this->textDomain ); ?></p>
-	<ul>
-		<li><svg class="icon"><use xlink:href="#checkmark-outline"></use></svg><?php esc_html_e( 'Create custom fields with drag-n-drop interface - no coding knowledge required!', $this->textDomain ); ?></li>
-		<li><svg class="icon"><use xlink:href="#checkmark-outline"></use></svg><?php esc_html_e( 'Add custom fields to taxonomies or user profile.', $this->textDomain ); ?></li>
-		<li><svg class="icon"><use xlink:href="#checkmark-outline"></use></svg><?php esc_html_e( 'Create custom settings pages.', $this->textDomain ); ?></li>
-		<li><svg class="icon"><use xlink:href="#checkmark-outline"></use></svg><?php esc_html_e( 'Create frontend submission forms.', $this->textDomain ); ?></li>
-		<li><svg class="icon"><use xlink:href="#checkmark-outline"></use></svg><?php esc_html_e( 'Save custom fields in custom tables.', $this->textDomain ); ?></li>
-		<li><svg class="icon"><use xlink:href="#checkmark-outline"></use></svg><?php esc_html_e( 'And much more!', $this->textDomain ); ?></li>
-	</ul>
-	<a class="button button-primary" target="_blank" href="https://oxyprops.com/shop/?utm_source=WordPress&utm_medium=link&utm_campaign=plugin"><?php esc_html_e('Get OxyProps PRO today', $this->textDomain); ?></a>
-</div>
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-	<symbol id="checkmark-outline" viewBox="0 0 20 20">
-		<path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM6.7 9.29L9 11.6l4.3-4.3 1.4 1.42L9 14.4l-3.7-3.7 1.4-1.42z"/>
-	</symbol>
-</svg>
+            <h3>
+                <span class="dashicons dashicons-superhero"></span>
+                <?php
+                esc_html_e('Upgrade to OxyProps PRO', $this->textDomain);
+                ?>
+            </h3>
+            <p>
+                <?php
+                esc_html_e(
+                    'When you upgrade to the PRO version, you unlock these awesome features:',
+                    $this->textDomain
+                );
+                ?>
+            </p>
+            <ul>
+                <li>
+                    <svg class="icon">
+                        <use xlink:href="#checkmark-outline"></use>
+                    </svg>
+                    <?php
+                    esc_html_e(
+                        'Hundreds of exclusive additional props from custom colors to fluid typography and layouts!',
+                        $this->textDomain
+                    );
+                    ?>
+                </li>
+                <li>
+                    <svg class="icon">
+                        <use xlink:href="#checkmark-outline"></use>
+                    </svg>
+                    <?php
+                    esc_html_e(
+                        'A full utility classes framework (6500+ classes) built with the core CSS Variables.',
+                        $this->textDomain
+                    );
+                    ?>
+                </li>
+                <li>
+                    <svg class="icon">
+                        <use xlink:href="#checkmark-outline"></use>
+                    </svg>
+                    <?php
+                    esc_html_e(
+                        'Built in color schemes management for easy light/dark modes development.',
+                        $this->textDomain
+                    );
+                    ?>
+                </li>
+                <li>
+                    <svg class="icon">
+                        <use xlink:href="#checkmark-outline"></use>
+                    </svg>
+                    <?php
+                    esc_html_e(
+                        'OxyProps Builder enhancements (Oxygen, Bricks coming soon) for instant access to the framework.',
+                        $this->textDomain
+                    );
+                    ?>
+                </li>
+                <li>
+                    <svg class="icon">
+                        <use xlink:href="#checkmark-outline"></use>
+                    </svg>
+                    <?php
+                    esc_html_e(
+                        'Custom elements for damn easy color schemes management (Oxygen, Bricks coming soon).',
+                        $this->textDomain
+                    );
+                    ?>
+                </li>
+            </ul>
+            <a
+            class="button button-primary"
+            target="_blank"
+            href="https://oxyprops.com/shop/?utm_source=WordPress&utm_medium=link&utm_campaign=plugin"
+            >
+            <?php
+            esc_html_e('Get OxyProps PRO today', $this->textDomain);
+            ?> &rarr;
+            </a>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="checkmark-outline" viewBox="0 0 20 20">
+                <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM6.7 9.29L9 11.6l4.3-4.3 1.4 1.42L9 14.4l-3.7-3.7 1.4-1.42z"/>
+            </symbol>
+        </svg>
         <?php
     }
 }
