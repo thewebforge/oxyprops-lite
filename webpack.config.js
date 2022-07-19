@@ -4,9 +4,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = {
   entry: {
-    frontend: "./src/js/frontend.js",
-    backend: "./src/js/backend.js",
-    normalize: "./src/js/normalize.js",
+    frontend: './src/js/frontend.js',
+    backend: './src/js/backend.js',
+    normalize: './src/js/normalize.js',
+    dashboard: './src/js/dashboard.js',
   },
   output: {
     filename: "[name].js",
@@ -30,7 +31,7 @@ module.exports = {
             'sass-loader'],
       },
       {
-        test: /\.(gif|png|jpe?g|svg)$/i,
+        test: /\.(gif|png|jpe?g)$/i,
         use: [
           {
             loader: "url-loader",
