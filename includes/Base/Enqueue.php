@@ -96,12 +96,16 @@ class Enqueue extends BaseController
             wp_enqueue_style(
                 'oxyprops-props',
                 $this->pluginUrl.'assets/css/open-props/open-props.op-lite.min.css',
-                $this->version
+                [],
+                $this->version,
+                'all'
             );
             wp_enqueue_style(
                 'oxyprops-hsl-props',
                 $this->pluginUrl.'assets/css/open-props/colors-hsl.op-lite.min.css',
-                $this->version
+                [],
+                $this->version,
+                'all'
             );
         } else {
             Helpers::enqueueSelectedPackages($this->pluginUrl, $this->version);
@@ -111,7 +115,9 @@ class Enqueue extends BaseController
             wp_enqueue_style(
                 'oxyprops-normalize',
                 $this->pluginUrl.'assets/css/normalize.min.css',
-                $this->version
+                [],
+                $this->version,
+                'all'
             );
         }
 
@@ -121,7 +127,7 @@ class Enqueue extends BaseController
             $this->pluginUrl.'assets/js/frontend.js',
             [],
             $this->version,
-            'all'
+            true
         );
     }
 
@@ -146,6 +152,13 @@ class Enqueue extends BaseController
         wp_enqueue_style(
             'oxyprops-props',
             $this->pluginUrl.'assets/css/open-props/open-props.op-lite.min.css',
+            [],
+            $this->version,
+            'all'
+        );
+        wp_enqueue_style(
+            'oxyprops-hsl-props',
+            $this->pluginUrl.'assets/css/open-props/colors-hsl.op-lite.min.css',
             [],
             $this->version,
             'all'
