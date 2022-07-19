@@ -427,35 +427,51 @@ class AdminCallbacks extends BaseController
     public function gettingStartedSection()
     {
         ?>
-<div id="getting-started" class="gt-tab-pane">
-	<div class="two">
-		<div class="col">
-			<h3><?php esc_html_e( 'Getting Started With Online Generator', 'meta-box' ); ?></h3>
-			<p><?php esc_html_e( 'Online Generator is a free tool to help you create and set up custom fields using a simple, friendly user interface. With it, you can add fields, set options and generate needed code that\'s ready to copy and paste.', 'meta-box' ); ?></p>
-
-			<a target="_blank" class="screenshot" href="https://metabox.io/online-generator/?utm_source=WordPress&utm_medium=link&utm_campaign=plugin"><img src="<?php echo esc_url( RWMB_URL . 'inc/about/images/online-generator.png' ); ?>" alt="<?php esc_attr_e( 'online generator', 'meta-box' ); ?>"></a>
-
-			<p><a class="button" target="_blank" href="https://metabox.io/online-generator/?utm_source=WordPress&utm_medium=link&utm_campaign=plugin"><?php esc_html_e( 'Go to Online Generator', 'meta-box' ); ?></a></p>
-		</div>
-
-		<div class="col">
-			<h3><?php esc_html_e( 'Extensions', 'meta-box' ); ?></h3>
-			<p><?php esc_html_e( 'Wanna see more features that transform your WordPress website into a powerful CMS? Check out some extensions below:', 'meta-box' ); ?><p>
-			<ul>
-				<li><a target="_blank" href="https://metabox.io/plugins/meta-box-builder/?utm_source=WordPress&utm_medium=link&utm_campaign=plugin"><?php esc_html_e( 'Meta Box Builder', 'meta-box' ); ?></a> - <?php esc_html_e( 'Build meta boxes and fields with UI.', 'meta-box' ); ?></li>
-				<li><a target="_blank" href="https://metabox.io/plugins/meta-box-group/?utm_source=WordPress&utm_medium=link&utm_campaign=plugin"><?php esc_html_e( 'Meta Box Group', 'meta-box' ); ?></a> - <?php esc_html_e( 'Organize fields into repeatable groups.', 'meta-box' ); ?></li>
-				<li><a target="_blank" href="https://metabox.io/plugins/meta-box-conditional-logic/?utm_source=WordPress&utm_medium=link&utm_campaign=plugin"><?php esc_html_e( 'Meta Box Conditional Logic', 'meta-box' ); ?></a> - <?php esc_html_e( 'Control the visibility of fields.', 'meta-box' ); ?></li>
-				<li><a target="_blank" href="https://metabox.io/plugins/mb-settings-page/?utm_source=WordPress&utm_medium=link&utm_campaign=plugin"><?php esc_html_e( 'MB Settings Page', 'meta-box' ); ?></a> - <?php esc_html_e( 'Create settings pages/Customizer options.', 'meta-box' ); ?></li>
-			</ul>
-
-			<div class="youtube-video-container">
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/WffqhZojpYY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</div>
-			<p><a class="button" target="_blank" href="https://metabox.io/plugins/?utm_source=WordPress&utm_medium=link&utm_campaign=plugin"><?php esc_html_e( 'More Extensions', 'meta-box' ); ?></a></p>
-		</div>
-	</div>
-</div>
-<?php
+        <div id="getting-started" class="gt-tab-pane">
+            <div class="two">
+                <div class="col">
+                    <h3>
+                        <?php
+                        esc_html_e(
+                            'Getting Started With Online Generator', $this->textDomain
+                        );
+                        ?>
+                    </h3>
+                    <p>
+                        <?php
+                        esc_html_e(
+                            'Online Generator is a free tool to help you create and set up custom fields using a simple, friendly user interface. With it, you can add fields, set options and generate needed code that\'s ready to copy and paste.',
+                            $this->textDomain
+                        );
+                        ?>
+                    </p>
+                    <div class="youtube-video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/WffqhZojpYY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col">
+                <h3>
+                        <?php
+                        esc_html_e(
+                            'Getting Started With Online Generator', $this->textDomain
+                        );
+                        ?>
+                    </h3>
+                    <p>
+                        <?php
+                        esc_html_e(
+                            'Online Generator is a free tool to help you create and set up custom fields using a simple, friendly user interface. With it, you can add fields, set options and generate needed code that\'s ready to copy and paste.',
+                            $this->textDomain
+                        );
+                        ?>
+                    </p>
+                    <div class="youtube-video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/WffqhZojpYY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
     }
 
     /**
@@ -469,33 +485,82 @@ class AdminCallbacks extends BaseController
     public function supportSection()
     {
         ?>
-<div id="support" class="gt-tab-pane">
-	<p class="about-description">
-		<?php
-		$allowed_html = array(
-			'a' => array(
-				'href' => array(),
-			),
-		);
-		// Translators: %s - link to documentation.
-		echo wp_kses( sprintf( __( 'Still need help with Meta Box? We offer excellent support for you. But don\'t forget to check our <a href="%s">documentation</a> first.', 'meta-box' ), 'https://docs.metabox.io?utm_source=WordPress&utm_medium=link&utm_campaign=plugin' ), $allowed_html );
-		?>
-	</p>
-	<div class="two">
-		<div class="col">
-			<h3><?php esc_html_e( 'Free Support', 'meta-box' ); ?></h3>
-			<p><?php esc_html_e( 'If you have any question about how to use the plugin, please open a new topic on WordPress.org support forum or open a new issue on Github (preferable). We will try to answer as soon as we can.', 'meta-box' ); ?><p>
-			<p><a class="button" target="_blank" href="https://github.com/wpmetabox/meta-box/issues"><?php esc_html_e( 'Go to Github', 'meta-box' ); ?> &rarr;</a></p>
-		</div>
-
-		<div class="col">
-			<h3><?php esc_html_e( 'Premium Support', 'meta-box' ); ?></h3>
-			<p><?php esc_html_e( 'For users that have bought premium extensions, the support is provided in the Meta Box Support forum. Any question will be answered with technical details within 24 hours.', 'meta-box' ); ?><p>
-			<p><a class="button" target="_blank" href="https://metabox.io/support/?utm_source=WordPress&utm_medium=link&utm_campaign=plugin"><?php esc_html_e( 'Go to support forum', 'meta-box' ); ?> &rarr;</a></p>
-		</div>
-	</div>
-</div>
-<?php
+        <div id="support" class="gt-tab-pane">
+        <p class="about-description">
+                <?php
+                $allowedHtml = array(
+                    'a' => array(
+                        'href' => array(),
+                    ),
+                );
+                echo wp_kses(
+                    sprintf(
+                        __(
+                            'Still need help with OxyProps? We offer excellent support for you. But don\'t forget to check our <a href="%s">documentation</a> first.',
+                            $this->textDomain
+                        ),
+                        'https://docs.oxyprops.com?utm_source=WordPress&utm_medium=link&utm_campaign=plugin'
+                    ),
+                    $allowedHtml
+                );
+                ?>
+            </p>
+            <div class="two">
+                <div class="col">
+                    <h3>
+                        <?php
+                        esc_html_e('Free Support', $this->textDomain);
+                        ?>
+                    </h3>
+                    <p>
+                        <?php
+                        esc_html_e(
+                            'If you have any question about how to use the plugin, please open a new issue on Github so we get notified. We will try to answer as soon as we can.',
+                            $this->textDomain
+                        );
+                        ?>
+                    <p>
+                    <p>
+                        <a
+                        class="button"
+                        target="_blank"
+                        href="https://github.com/thewebforge/oxyprops-lite/issues"
+                        >
+                        <?php
+                        esc_html_e('Go to Github', $this->textDomain);
+                        ?> &rarr;
+                        </a>
+                    </p>
+                </div>
+                <div class="col">
+                    <h3>
+                        <?php
+                        esc_html_e('Premium Support', $this->textDomain);
+                        ?>
+                    </h3>
+                    <p>
+                        <?php
+                        esc_html_e(
+                            'For users that have bought OxyProps Pro, the support is provided in the OxyProps Support forum. Any question will be answered within 48 business hours.',
+                            $this->textDomain
+                        );
+                        ?>
+                    <p>
+                    <p>
+                        <a
+                        class="button"
+                        target="_blank"
+                        href="https://github.com/thewebforge/oxyprops-lite/issues"
+                        >
+                        <?php
+                        esc_html_e('Go to Support Forum', $this->textDomain);
+                        ?> &rarr;
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <?php
     }
 
     /**
@@ -510,15 +575,54 @@ class AdminCallbacks extends BaseController
     {
         ?>
         <div class="postbox">
-	<h3 class="hndle">
-		<span><?php esc_html_e( 'Our WordPress Products', 'falcon' ) ?></span>
-	</h3>
-	<div class="inside">
-		<p><?php esc_html_e( 'Like this plugin? Check out our other WordPress products:', 'falcon' ) ?></p>
-		<p><a href="https://wpslimseo.com?utm_source=WordPress&utm_medium=link&utm_campaign=meta-box" target="_blank" rel="noopenner noreferrer">Slim SEO</a> - <?php esc_html_e( 'Automated & fast SEO plugin for WordPress', 'falcon' ) ?></p>
-		<p><a href="https://gretathemes.com/wordpress-themes/estar/?utm_source=WordPress&utm_medium=link&utm_campaign=meta-box" target="_blank" rel="noopenner noreferrer">eStar</a> - <?php esc_html_e( 'A super fast, lightweight and highly customizable WordPress theme', 'falcon' ) ?></p>
-	</div>
-</div>
+            <h3 class="hndle">
+                <span>
+                    <?php
+                    esc_html_e('Our WordPress Products', $this->textDomain)
+                    ?>
+                </span>
+            </h3>
+            <div class="inside">
+                <p>
+                    <?php
+                    esc_html_e(
+                        'Like this plugin? Check out our other WordPress products:',
+                        $this->textDomain
+                    );
+                    ?>
+                </p>
+                <p>
+                    <a
+                    href="https://wpslimseo.com?utm_source=WordPress&utm_medium=link&utm_campaign=meta-box"
+                    target="_blank"
+                    rel="noopenner noreferrer"
+                    >
+                    Slim SEO
+                    </a> - 
+                    <?php
+                    esc_html_e(
+                        'Automated & fast SEO plugin for WordPress',
+                        $this->textDomain
+                    );
+                    ?>
+                </p>
+                <p>
+                    <a
+                    href="https://wpslimseo.com?utm_source=WordPress&utm_medium=link&utm_campaign=meta-box"
+                    target="_blank"
+                    rel="noopenner noreferrer"
+                    >
+                    Slim SEO
+                    </a> - 
+                    <?php
+                    esc_html_e(
+                        'Automated & fast SEO plugin for WordPress',
+                        $this->textDomain
+                    );
+                    ?>
+                </p>
+            </div>
+        </div>
         <?php
     }
 
