@@ -2,10 +2,6 @@
   <style>
       .op-svg-logo__dash, .op-svg-logo__bubble { fill: #3B5BDB }
       .op-svg-logo__ring { fill: #5C7CFA }
-    @media (prefers-color-scheme: dark) {
-      .op-svg-logo__dash, .op-svg-logo__bubble { fill: #eee }
-      .op-svg-logo__ring { fill: #ccc }
-    }
   </style>
   <path class="op-svg-logo__ring" d="M265.44 359.52C313.22 279.91 400.39 226.63 500 226.63s186.77 53.28 234.56 132.89h118.29C797 219.37 660.07 120.32 500.01 120.32s-297 99.05-352.85 239.2h118.28Zm469.12 280.96C686.78 720.09 599.61 773.37 500 773.37s-186.77-53.28-234.56-132.89H147.16c55.85 140.15 192.78 239.2 352.84 239.2s296.99-99.05 352.84-239.2H734.55Z" />
   <rect class="op-svg-logo__dash" width="227.26" height="106.79" x="2" y="446.61" rx="53.39" ry="53.39"/>
