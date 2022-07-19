@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/paypalme/cbontems
 Tags: CSS Framework, CSS Variables
 Requires at least: 5.6
 Tested up to: 6.0
-Stable tag: 0.9.1
+Stable tag: 0.9.0-β
 Requires PHP: 7.2
 License: MIT
 License URI: https://opensource.org/licenses/MIT
@@ -57,10 +57,10 @@ OxyProps Pro is a Premium WordPress plugin including an extended version of Open
 
 == Changelog ==
 
-= 1.0.0 =
-* Initial release.
+= 0.9.0-β =
+* Beta release.
 
 == Upgrade Notice ==
 
-= 1.0.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
+= 0.9.0-β =
+* Beta release.
