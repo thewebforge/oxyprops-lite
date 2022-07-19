@@ -7,6 +7,7 @@
     "start": "webpack --mode=development --watch",
     "build": "concurrently \"webpack --mode=production\" && concurrently npm:copy:* -m 25 && npm run zippack",
     "lib:normalize": "postcss src/sass/normalize/normalize.css -o ../../../assets/css/oxynormalize.op-lite.min.css",
+    "copy:images": "copyfiles './src/images/**/*'  assets/images",
     "copy:assets": "copyfiles './assets/**/*'  dist/oxyprops-lite",
     "copy:config": "copyfiles './config/**/*' dist/oxyprops-lite",
     "copy:includes": "copyfiles './includes/**/*' dist/oxyprops-lite",
