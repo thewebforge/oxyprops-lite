@@ -89,7 +89,6 @@ if (class_exists('Inc\\Init')) {
     Inc\Init::registerServices();
 }
 
-// Simplify our lives with Composer Autoload
 if (file_exists(
     dirname(__FILE__).
     '/vendor/plugin-update-checker/plugin-update-checker.php'
