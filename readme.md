@@ -8,7 +8,7 @@
 OxyProps Lite is a WordPress plugin that integrates [Open Props](https://open-props.style), a library of 350+ CSS Variables, into you wordpress site.  
 It can be used with any site builder that accepts css variables as elements property values, or directly in your code.
 
-It is free and Open Source. Browse the source on [GitHub](https://github.com/thewebforge/oxyprops-lite)
+It is free and Open Source. Browse the source on the [GitHub repository](https://github.com/thewebforge/oxyprops-lite)
 
 ## Installation ##
 
@@ -25,4 +25,4 @@ It is free and Open Source. Browse the source on [GitHub](https://github.com/the
 * Right after installation, the CSS variables are immediately available.
 * OxyProps Lite variables are prefixed with a --o- like --o-size-5.
 * Use them by wrapping the variables in CSS var() functions like var(--o-font-sans).
-* More informations about the available props [on the OxyProps Lite website.](https://lite.oxyprops.com)
+* More informations about the available props on [the OxyProps Lite website.](https://lite.oxyprops.com)
