@@ -98,12 +98,12 @@ class Dashboard extends BaseController {
 		$this->callbacks        = AdminCallbacks::get_instance();
 		$this->callbacks_fields = FieldsCallbacks::get_instance();
 
-		$this->setPages();
+		$this->set_pages();
 		$this->setadmin_settings();
-		$this->setAdminSections();
+		$this->set_admin_sections();
 
 		// Wait for translations to be loaded.
-		add_action( 'init', array( $this, 'setAdminFields' ), 10, 2 );
+		add_action( 'init', array( $this, 'set_admin_fields' ), 10, 2 );
 
 		$this->settings->add_pages( $this->pages )->with_sub_page( 'Dashboard' )
 			->register_setting();
@@ -121,7 +121,7 @@ class Dashboard extends BaseController {
 	 * @since  1.0.0
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
-	public function setPages() {
+	public function set_pages() {
 		$this->pages = array(
 			array(
 				'page_title' => $this->adapted_name,
@@ -162,7 +162,7 @@ class Dashboard extends BaseController {
 	 * @since  1.0.0
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
-	public function setAdminSections() {
+	public function set_admin_sections() {
 		$args = array(
 			array(
 				'id'       => 'oxyprops_lite_master_settings_section',
@@ -182,7 +182,7 @@ class Dashboard extends BaseController {
 	 * @since  1.0.0
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
-	public function setAdminFields() {
+	public function set_admin_fields() {
 		$args             = array();
 		$default_settings = Options::plugin_options();
 		foreach ( $default_settings as $key => $parameters ) {
@@ -210,7 +210,7 @@ class Dashboard extends BaseController {
 	 * @since  1.0.0
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
-	public function loadDashboard() {
+	public function load_dashboard() {
 		$this->enqueue();
 	}
 
@@ -247,7 +247,7 @@ class Dashboard extends BaseController {
 			'all'
 		);
 
-		add_filter( 'admin_footer_text', array( $this, 'changeFooterText' ) );
+		add_filter( 'admin_footer_text', array( $this, 'change_footer_text' ) );
 	}
 
 	/**
@@ -258,7 +258,7 @@ class Dashboard extends BaseController {
 	 * @since  1.0.0
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
-	public function changeFooterText() {
+	public function change_footer_text() {
 		echo wp_kses_post(
 			sprintf(
 				// Translators: %1$s - link to review form.
