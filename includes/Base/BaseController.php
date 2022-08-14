@@ -74,7 +74,18 @@ class BaseController {
 	public $supported_builder;
 
 	/**
-	 * The plugin name adjustedd  to the active site builder
+	 * The plugin short name adjusted to the active site builder
+	 * For use in the admin menu if too standard is too long
+	 *
+	 * @var string
+	 *
+	 * @since  1.0.0
+	 * @author Cédric Bontems <dev@oxyprops.com>
+	 */
+	public $short_adapted_name;
+
+	/**
+	 * The plugin name adjusted to the active site builder
 	 *
 	 * @var string
 	 *
@@ -290,19 +301,22 @@ class BaseController {
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
 	private function get_builder() {
-		$this->supported_builder = true;
-		$this->adapted_name      = 'OxyProps Lite';
-		$theme                   = wp_get_theme();
+		$this->supported_builder  = true;
+		$this->adapted_name       = 'OxyProps Lite';
+		$this->short_adapted_name = 'OxyProps Lite';
+		$theme                    = wp_get_theme();
 
 		if ( defined( 'CT_VERSION' ) ) {
 			return 'Oxygen';
 		}
 		if ( 'Bricks' === $theme->name || 'Bricks' === $theme->parent_theme ) {
 			$this->adapted_name = 'BricksProps Lite';
+			$this->short_adapted_name = 'BricksProps Lite';
 			return 'Bricks';
 		}
 		if ( defined( '__BREAKDANCE_VERSION' ) ) {
 			$this->adapted_name = 'BreakdanceProps Lite';
+			$this->short_adapted_name = 'BDProps Lite';
 			return 'Breakdance';
 		}
 		$this->supported_builder = false;
