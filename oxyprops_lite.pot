@@ -1,0 +1,528 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: OxyProps Lite\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-14 21:13+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.2; wp-6.0.1\n"
+"X-Domain: oxyprops_lite"
+
+#. %s is replaced with the plugin name adapted for the site builder
+#: includes/Api/Callbacks/AdminCallbacks.php:603
+#, php-format
+msgid ""
+"%1$s includes a Normalize stylesheet adapted from Open Props Normalize to "
+"WordPress and %2$s specifics."
+msgstr ""
+
+#. %s is replaced with the plugin version number
+#: includes/Api/Callbacks/AdminCallbacks.php:212
+#, php-format
+msgid "%1$s v%2$s"
+msgstr ""
+
+#. %s is replaced with the plugin name adapted for the site builder
+#: includes/Api/Callbacks/AdminCallbacks.php:272
+#, php-format
+msgid "%s Documentation"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:800
+msgid ""
+"A full utility classes framework (6500+ classes) built with the core CSS "
+"Variables."
+msgstr ""
+
+#: includes/Base/Options.php:120
+msgid "All Colors"
+msgstr ""
+
+#: includes/Base/Options.php:126
+msgid "All Colors hsl"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:127
+msgid "All CSS Variables will be available for you to use."
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:220
+msgid "and"
+msgstr ""
+
+#: includes/Base/Options.php:66
+msgid "Animations"
+msgstr ""
+
+#: includes/Base/Options.php:37
+msgid "Apply Normalize"
+msgstr ""
+
+#: includes/Base/Options.php:72
+msgid "Aspect Ratios"
+msgstr ""
+
+#: includes/Base/Options.php:132
+msgid "Blue"
+msgstr ""
+
+#: includes/Base/Options.php:138
+msgid "Blue hsl"
+msgstr ""
+
+#: includes/Base/Options.php:78
+msgid "Borders"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:811
+msgid ""
+"Built in color schemes management for easy light/dark modes development."
+msgstr ""
+
+#. %s is replaced with the plugin name adapted for the site builder
+#: includes/Api/Callbacks/AdminCallbacks.php:444
+#, php-format
+msgid ""
+"By default, %s doesn't apply Normalize, and loads the full bundle as linked "
+"stylesheets."
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:833
+msgid ""
+"Custom elements for damn easy color schemes management (Oxygen, Bricks "
+"coming soon)."
+msgstr ""
+
+#: includes/Base/Options.php:144
+msgid "Cyan"
+msgstr ""
+
+#: includes/Base/Options.php:150
+msgid "Cyan hsl"
+msgstr ""
+
+#: includes/Base/SettingsLinks.php:78
+msgid "Docs"
+msgstr ""
+
+#: includes/Base/Options.php:84
+msgid "Easings"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:299
+msgid "Facebook Group"
+msgstr ""
+
+#. %s is replaced with the plugin name adapted for the site builder
+#: includes/Api/Callbacks/AdminCallbacks.php:337
+#, php-format
+msgid ""
+"Find video tutorials about using %s, CSS tips and tricks & Web Design. And "
+"if you like them, don't forget to subscribe!"
+msgstr ""
+
+#: includes/Base/Options.php:90
+msgid "Fonts"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:687
+msgid ""
+"For users that have bought OxyProps Pro, the support is provided by email. "
+"Use the contact form an make sure to provide your license email. Any "
+"question will be answered within 48 business hours."
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:655
+msgid "Free Support"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:258
+#: includes/Api/Callbacks/AdminCallbacks.php:846
+msgid "Get OxyProps PRO today"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:396
+msgid "Getting Started"
+msgstr ""
+
+#: includes/Base/SettingsLinks.php:81
+msgid "Go Pro"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:673
+msgid "Go to Github"
+msgstr ""
+
+#. %1$s is replaced with the site builder name, %2$s is replaced with the plugin name adapted for the site builder, %3$s is replaced with the plugin name
+#: includes/Api/Callbacks/AdminCallbacks.php:158
+#, php-format
+msgid ""
+"Good News! %3$s supports %1$s, so let's rename it %2$s and it  will adapt to "
+"%1$s's specifics."
+msgstr ""
+
+#. %1$s is replaced with the site builder name, %2$s is replaced with the plugin name adapted for the site builder, %3$s is replaced with the plugin name
+#: includes/Api/Callbacks/AdminCallbacks.php:186
+#, php-format
+msgid ""
+"Good News! %3$s was built initialy for %1$s so, of course, %1$s is supported."
+msgstr ""
+
+#: includes/Base/Options.php:96
+msgid "Gradients"
+msgstr ""
+
+#: includes/Base/Options.php:156
+msgid "Grape"
+msgstr ""
+
+#: includes/Base/Options.php:162
+msgid "Grape hsl"
+msgstr ""
+
+#: includes/Base/Options.php:168
+msgid "Gray"
+msgstr ""
+
+#: includes/Base/Options.php:174
+msgid "Gray hsl"
+msgstr ""
+
+#: includes/Base/Options.php:180
+msgid "Green"
+msgstr ""
+
+#: includes/Base/Options.php:186
+msgid "Green hsl"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://lite.oxyprops.com"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://thewebforge.dev"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:789
+msgid ""
+"Hundreds of exclusive additional props from custom colors to fluid "
+"typography and layouts!"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:660
+msgid ""
+"If you have any question about how to use the plugin, please open a new "
+"issue on Github so we get notified. We will try to answer as soon as we can."
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:579
+msgid ""
+"In this short video, we will have an overview of the available Props and see "
+"how to use them with or without a site builder."
+msgstr ""
+
+#: includes/Base/Options.php:192
+msgid "Indigo"
+msgstr ""
+
+#: includes/Base/Options.php:198
+msgid "Indigo hsl"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:526
+msgid "Individual Colors"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:540
+msgid "Individual Colors HSL"
+msgstr ""
+
+#: includes/Base/Options.php:45
+msgid "Inline Styles (no http req.)"
+msgstr ""
+
+#. %s is replaced with the plugin name adapted for the site builder
+#: includes/Api/Callbacks/AdminCallbacks.php:147
+#: includes/Api/Callbacks/AdminCallbacks.php:175
+#, php-format
+msgid "It looks like you are using %s as your Site Builder."
+msgstr ""
+
+#. %s is replaced with the plugin name adapted for the site builder
+#: includes/Api/Callbacks/AdminCallbacks.php:307
+#, php-format
+msgid ""
+"Join the %s Users Community and engage discussion with awesome WordPress "
+"Professionals from all over the world."
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:318
+msgid "Join the Community"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:202
+msgid "Learn more about"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:732
+msgid "Like this plugin? Check out our other WordPress products:"
+msgstr ""
+
+#: includes/Base/Options.php:204
+msgid "Lime"
+msgstr ""
+
+#: includes/Base/Options.php:210
+msgid "Lime hsl"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:512
+msgid "Main Packages"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:376
+#: includes/Api/Callbacks/AdminCallbacks.php:436
+msgid "Main Settings"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:747
+msgid "Minimal theme for your Oxygen or Breakdance site."
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:700
+msgid "Open a support request"
+msgstr ""
+
+#. Description of the plugin
+msgid "Open Props CSS Custom properties for WordPress users."
+msgstr ""
+
+#. %s is replaced with Open Props version number
+#: includes/Api/Callbacks/AdminCallbacks.php:231
+#, php-format
+msgid "Open Props v%s"
+msgstr ""
+
+#: includes/Base/Options.php:216
+msgid "Orange"
+msgstr ""
+
+#: includes/Base/Options.php:222
+msgid "Orange hsl"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:725
+msgid "Our WordPress Products"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:822
+msgid ""
+"OxyProps Builder enhancements (Oxygen, Bricks coming soon) for instant "
+"access to the framework."
+msgstr ""
+
+#. Name of the plugin
+msgid "OxyProps Lite"
+msgstr ""
+
+#: includes/Base/Options.php:228
+msgid "Pink"
+msgstr ""
+
+#: includes/Base/Options.php:234
+msgid "Pink hsl"
+msgstr ""
+
+#. %1$s - link to review form.
+#: includes/Dashboard/Dashboard.php:265
+#, php-format
+msgid ""
+"Please rate <strong>%2$s</strong> <a href=\"%1$s\" target=\"_blank\">&#9733;"
+"&#9733;&#9733;&#9733;&#9733;</a> on <a href=\"%1$s\" target=\"_blank\">our "
+"Facebook Page</a> to help us spread the word. Thank you from the OxyProps "
+"team!"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:682
+msgid "Premium Support"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:288
+msgid "Read Docs"
+msgstr ""
+
+#: includes/Base/Options.php:240
+msgid "Red"
+msgstr ""
+
+#: includes/Base/Options.php:246
+msgid "Red hsl"
+msgstr ""
+
+#: includes/Base/Options.php:49
+msgid "Remove default WP props"
+msgstr ""
+
+#: includes/Base/Options.php:41
+msgid "Select Individual PropsPacks"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:386
+msgid "Select Packages"
+msgstr ""
+
+#: includes/Base/SettingsLinks.php:76
+msgid "Settings"
+msgstr ""
+
+#. %s is replaced with the plugin name adapted for the site builder
+#: includes/Api/Callbacks/AdminCallbacks.php:472
+#, php-format
+msgid "SetUp %s"
+msgstr ""
+
+#: includes/Base/Options.php:102
+msgid "Shadows"
+msgstr ""
+
+#: includes/Base/Options.php:108
+msgid "Sizes"
+msgstr ""
+
+#. %s is replaced with the link url
+#: includes/Api/Callbacks/AdminCallbacks.php:640
+#, php-format
+msgid ""
+"Still need help with %2$s? We offer excellent support for you. But don't "
+"forget to check our <a href=\"%1$s\">documentation</a> first."
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:403
+msgid "Support"
+msgstr ""
+
+#: includes/Base/Options.php:252
+msgid "Teal"
+msgstr ""
+
+#: includes/Base/Options.php:258
+msgid "Teal hsl"
+msgstr ""
+
+#. %s is replaced with the plugin name adapted for the site builder
+#: includes/Api/Callbacks/AdminCallbacks.php:122
+#, php-format
+msgid ""
+"The site builder you are using is not officially supported, but you can use "
+"%s anyway!"
+msgstr ""
+
+#. Author of the plugin
+msgid "The Web Forge"
+msgstr ""
+
+#. %1$s is replaced with the plugin name adapted for the site builder
+#: includes/Api/Callbacks/AdminCallbacks.php:426
+#, php-format
+msgid ""
+"To keep things simple, %1$s just works \"out of the box\". But from here you "
+"can customize the way %1$s loads assets, and remove WordPress default CSS "
+"Variables and SVG presets if you want to."
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:280
+msgid ""
+"To learn more about the plugin, the concept of design tokens, the framework "
+"or the way to use it, check our documentation!"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:772
+msgid "Upgrade to OxyProps PRO"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:245
+msgid "Upgrade to PRO"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:250
+msgid ""
+"Upgrade to the OxyProps PRO plan and unlock a bunch of awesome features to "
+"save time and stremaline your workflow."
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:571
+msgid "Using the Props"
+msgstr ""
+
+#: includes/Base/Options.php:264
+msgid "Violet"
+msgstr ""
+
+#: includes/Base/Options.php:270
+msgid "Violet hsl"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:480
+msgid "Watch this short video to learn everything about the settings:"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:348
+msgid "Watch Tutorials"
+msgstr ""
+
+#. %s is replaced with the plugin name adapted for the site builder
+#: includes/Api/Callbacks/AdminCallbacks.php:107
+#, php-format
+msgid "Welcome to %s!"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:592
+msgid "What is Normalize?"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:777
+msgid "When you upgrade to the PRO version, you unlock these awesome features:"
+msgstr ""
+
+#: includes/Base/Options.php:276
+msgid "Yellow"
+msgstr ""
+
+#: includes/Base/Options.php:282
+msgid "Yellow hsl"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:452
+msgid "You can customize the behavior with the following options:"
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:505
+msgid ""
+"You chose to pick individual packages instead of loading the full bundle. "
+"Perfect! Just select the PropsPacks that will match your use case. If you "
+"select many, you may want to apply \"Inline Styles\" from the Main Settings "
+"for better performances."
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:132
+msgid ""
+"You may experience unexpected styles behaviours if using Normalize as it was "
+"not custom designed for your site builder."
+msgstr ""
+
+#: includes/Api/Callbacks/AdminCallbacks.php:329
+msgid "Youtube Channel"
+msgstr ""
+
+#: includes/Base/Options.php:114
+msgid "Z-index"
+msgstr ""
