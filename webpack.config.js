@@ -8,6 +8,7 @@ module.exports = {
     backend: './src/js/backend.js',
     normalize: './src/js/normalize.js',
     dashboard: './src/js/dashboard.js',
+    openProps: './src/js/open-props.js',
   },
   output: {
     filename: "[name].js",
