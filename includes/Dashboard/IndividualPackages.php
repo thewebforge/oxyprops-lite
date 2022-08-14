@@ -114,7 +114,6 @@ class IndividualPackages extends BaseController {
 
 		$this->set_packages_settings();
 		$this->set_packages_sections();
-		// $this->set_packages_fields();
 
 		// Wait for translations to be loaded.
 		add_action( 'init', array( $this, 'set_packages_fields' ), 10, 2 );
