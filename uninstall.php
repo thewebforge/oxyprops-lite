@@ -12,16 +12,16 @@
  * @since    1.0.0
  */
 
-if (!defined('WP_UNINSTALL_PLUGIN')) {
-    exit;
+if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+	exit;
 }
 
-$oxypropsLiteOptions = [
-    'oxyprops_lite',
-    'oxyprops_lite_packages',
-];
+$oxyprops_lite_options = array(
+	'oxyprops_lite',
+	'oxyprops_lite_packages',
+);
 
-// Clean up after us
-foreach ($oxypropsLiteOptions as $option) {
-    delete_option($option);
+// Clean up after us.
+foreach ( $oxyprops_lite_options as $option ) {
+	delete_option( $option );
 }
