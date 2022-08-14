@@ -17,185 +17,190 @@ namespace Inc\Base;
 /**
  * Enqueue Class
  * Enqueues styles and script to back and front.
- * php version 7.4.29
  *
- * @category Base
- * @package  OxyPropsLite
  * @author   Cédric Bontems <dev@oxyprops.com>
- * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://lite.oxyprops.com OxyProps Lite Website
  * @since    1.0.0
  */
-class Enqueue extends BaseController
-{
-    /**
-     * Stores the Enqueue Singleton.
-     *
-     * @var object
-     *
-     * @since  1.0.0
-     * @author Cédric Bontems <dev@oxyprops.com>
-     */
-    private static $_instance;
+class Enqueue extends BaseController {
 
-    /**
-     * Returns the Enqueue Singleton.
-     *
-     * @return object Instance
-     *
-     * @since  1.0.0
-     * @author Cédric Bontems <dev@oxyprops.com>
-     */
-    public static function getInstance()
-    {
-        if (null === self::$_instance) {
-            self::$_instance = new Enqueue();
-        }
+	/**
+	 * Stores the Enqueue Singleton.
+	 *
+	 * @var object
+	 *
+	 * @since  1.0.0
+	 * @author Cédric Bontems <dev@oxyprops.com>
+	 */
+	private static $instance;
 
-        return self::$_instance;
-    }
+	/**
+	 * Returns the Enqueue Singleton.
+	 *
+	 * @return object Instance
+	 *
+	 * @since  1.0.0
+	 * @author Cédric Bontems <dev@oxyprops.com>
+	 */
+	public static function get_instance() {
+		if ( null === self::$instance ) {
+			self::$instance = new Enqueue();
+		}
 
-    /**
-     * Initializes the Enqueue Class
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     * @author Cédric Bontems <dev@oxyprops.com>
-     */
-    public function register()
-    {
-        // Admin
-        add_action('admin_enqueue_scripts', [$this, 'enqueueAdmin']);
+		return self::$instance;
+	}
 
-        $inlineSelected = isset($this->currentOptions['oxyprops_lite_mode']) ?
-        $this->currentOptions['oxyprops_lite_mode'] :
-        false;
+	/**
+	 * Initializes the Enqueue Class
+	 *
+	 * @return void
+	 *
+	 * @since  1.0.0
+	 * @author Cédric Bontems <dev@oxyprops.com>
+	 */
+	public function register() {
+		// Admin.
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueueAdmin' ) );
 
-        if ($inlineSelected) {
-            // Inline Styles
-            add_action('wp_head', [$this, 'inlineFront'], 10000000000);
-        } else {
-            // Enqueue Stylesheets
-            add_action('wp_enqueue_scripts', [$this, 'enqueueFront']);
-        }
-    }
+		$inline_selected = isset( $this->current_options['oxyprops_lite_mode'] ) ?
+		$this->current_options['oxyprops_lite_mode'] :
+		false;
 
-    /**
-     * Enqueues FrontEnd scripts
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     * @author Cédric Bontems <dev@oxyprops.com>
-     */
-    public function enqueueFront()
-    {
-        // enqueue our front-end styles
-        if (!$this->currentOptions['oxyprops_lite_bundle']) {
-            wp_enqueue_style(
-                'oxyprops-props',
-                $this->pluginUrl.'assets/css/open-props/open-props.op-lite.min.css',
-                [],
-                $this->version,
-                'all'
-            );
-            wp_enqueue_style(
-                'oxyprops-hsl-props',
-                $this->pluginUrl.'assets/css/open-props/colors-hsl.op-lite.min.css',
-                [],
-                $this->version,
-                'all'
-            );
-        } else {
-            Helpers::enqueueSelectedPackages($this->pluginUrl, $this->version);
-        }
+		if ( $inline_selected ) {
+			// Inline Styles.
+			add_action( 'wp_head', array( $this, 'inlineFront' ), 10000000000 );
+		} else {
+			// Enqueue Stylesheets.
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueueFront' ) );
+		}
 
-        if ($this->currentOptions['oxyprops_lite_normalize']) {
-            wp_enqueue_style(
-                'oxyprops-normalize',
-                $this->pluginUrl.'assets/css/normalize.min.css',
-                [],
-                $this->version,
-                'all'
-            );
-        }
+		add_action( 'init', array( $this, 'oxyprops_lite_load_textdomain' ) );
 
-        // enqueue our front-end scripts
-        wp_enqueue_script(
-            'oxyprops-frontendscript',
-            $this->pluginUrl.'assets/js/frontend.js',
-            [],
-            $this->version,
-            true
-        );
-    }
+	}
 
-    /**
-     * Enqueues BackEnd scripts
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     * @author Cédric Bontems <dev@oxyprops.com>
-     */
-    public function enqueueAdmin()
-    {
-        // enqueue all our styles
-        wp_enqueue_style(
-            'oxyprops-adminstyle',
-            $this->pluginUrl.'assets/css/backend.min.css',
-            [],
-            $this->version,
-            'all'
-        );
-        wp_enqueue_style(
-            'oxyprops-props',
-            $this->pluginUrl.'assets/css/open-props/open-props.op-lite.min.css',
-            [],
-            $this->version,
-            'all'
-        );
-        wp_enqueue_style(
-            'oxyprops-hsl-props',
-            $this->pluginUrl.'assets/css/open-props/colors-hsl.op-lite.min.css',
-            [],
-            $this->version,
-            'all'
-        );
+	/**
+	 * Registers Text  Domains for plugin translations
+	 *
+	 * @return void
+	 *
+	 * @since  1.0.0
+	 * @author Cédric Bontems <dev@oxyprops.com>
+	 */
+	public function oxyprops_lite_load_textdomain() {
+		load_plugin_textdomain( 'oxyprops_lite', false, $this->slug . '/languages' );
+	}
 
-        // enqueue all our scripts
-        wp_enqueue_script(
-            'oxyprops-adminscript',
-            $this->pluginUrl.'assets/js/backend.js',
-            [],
-            $this->version,
-            'all'
-        );
-    }
+	/**
+	 * Enqueues FrontEnd scripts
+	 *
+	 * @return void
+	 *
+	 * @since  1.0.0
+	 * @author Cédric Bontems <dev@oxyprops.com>
+	 */
+	public function enqueueFront() {
+		// enqueue our front-end styles.
+		if ( ! $this->current_options['oxyprops_lite_bundle'] ) {
+			wp_enqueue_style(
+				'oxyprops-props',
+				$this->plugin_url . 'assets/css/open-props/open-props.op-lite.min.css',
+				array(),
+				$this->version,
+				'all'
+			);
+			wp_enqueue_style(
+				'oxyprops-hsl-props',
+				$this->plugin_url . 'assets/css/open-props/colors-hsl.op-lite.min.css',
+				array(),
+				$this->version,
+				'all'
+			);
+		} else {
+			Helpers::enqueue_selected_packages( $this->plugin_url, $this->version );
+		}
 
-    /**
-     * Inlines FrontEnd scripts
-     *
-     * @return void
-     *
-     * @since  1.0.0
-     * @author Cédric Bontems <dev@oxyprops.com>
-     */
-    public function inlineFront()
-    {
-        $stylesToInject = '';
+		if ( $this->current_options['oxyprops_lite_normalize'] ) {
+			wp_enqueue_style(
+				'oxyprops-normalize',
+				$this->plugin_url . 'assets/css/normalize.min.css',
+				array(),
+				$this->version,
+				'all'
+			);
+		}
 
-        if (!$this->currentOptions['oxyprops_lite_bundle']) {
-            $stylesToInject .= Helpers::getFullBundle();
-        } else {
-            $stylesToInject .= Helpers::getSelectedPackages($this->pluginPath);
-        }
+		// enqueue our front-end scripts.
+		wp_enqueue_script(
+			'oxyprops-frontendscript',
+			$this->plugin_url . 'assets/js/frontend.js',
+			array(),
+			$this->version,
+			true
+		);
+	}
 
-        if ($this->currentOptions['oxyprops_lite_normalize']) {
-            $stylesToInject .= Helpers::getNormalizeStyles();
-        }
+	/**
+	 * Enqueues BackEnd scripts
+	 *
+	 * @return void
+	 *
+	 * @since  1.0.0
+	 * @author Cédric Bontems <dev@oxyprops.com>
+	 */
+	public function enqueueAdmin() {
+		// enqueue all our styles.
+		wp_enqueue_style(
+			'oxyprops-adminstyle',
+			$this->plugin_url . 'assets/css/backend.min.css',
+			array(),
+			$this->version,
+			'all'
+		);
+		wp_enqueue_style(
+			'oxyprops-props',
+			$this->plugin_url . 'assets/css/open-props/open-props.op-lite.min.css',
+			array(),
+			$this->version,
+			'all'
+		);
+		wp_enqueue_style(
+			'oxyprops-hsl-props',
+			$this->plugin_url . 'assets/css/open-props/colors-hsl.op-lite.min.css',
+			array(),
+			$this->version,
+			'all'
+		);
 
-        echo '<style>'.$stylesToInject.'</style>';
-    }
+		// enqueue all our scripts.
+		wp_enqueue_script(
+			'oxyprops-adminscript',
+			$this->plugin_url . 'assets/js/backend.js',
+			array(),
+			$this->version,
+			'all'
+		);
+	}
+
+	/**
+	 * Inlines FrontEnd scripts
+	 *
+	 * @return void
+	 *
+	 * @since  1.0.0
+	 * @author Cédric Bontems <dev@oxyprops.com>
+	 */
+	public function inlineFront() {
+		$styles_to_inject = '';
+
+		if ( ! $this->current_options['oxyprops_lite_bundle'] ) {
+			$styles_to_inject .= Helpers::get_full_bundle();
+		} else {
+			$styles_to_inject .= Helpers::get_selected_packages( $this->plugin_path );
+		}
+
+		if ( $this->current_options['oxyprops_lite_normalize'] ) {
+			$styles_to_inject .= Helpers::get_normalize_styles();
+		}
+
+		echo '<style>' . esc_html( $styles_to_inject ) . '</style>';
+	}
 }
