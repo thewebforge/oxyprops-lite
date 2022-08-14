@@ -15,17 +15,13 @@
 namespace Inc\Api\Callbacks;
 
 use Inc\Base\BaseController;
+use Inc\Base\Options;
 
 /**
  * Admin Callbacks Class
  * Callbacks for plugin administration
- * php version 7.4.29
  *
- * @category Callbacks
- * @package  OxyPropsLite
  * @author   Cédric Bontems <dev@oxyprops.com>
- * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://lite.oxyprops.com OxyProps Lite Website
  * @since    1.0.0
  */
 class AdminCallbacks extends BaseController {
@@ -38,7 +34,7 @@ class AdminCallbacks extends BaseController {
 	 * @since  1.0.0
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
-	private static $_instance;
+	private static $instance;
 
 	/**
 	 * Returns the Admin Callbacks Singleton.
@@ -48,24 +44,24 @@ class AdminCallbacks extends BaseController {
 	 * @since  1.0.0
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
-	public static function getInstance() {
-		if ( null === self::$_instance ) {
-			self::$_instance = new AdminCallbacks();
+	public static function get_instance() {
+		if ( null === self::$instance ) {
+			self::$instance = new AdminCallbacks();
 		}
 
-		return self::$_instance;
+		return self::$instance;
 	}
 
 	/**
 	 * Returns the Admin Dashboard template
 	 *
-	 * @return void
+	 * @return string
 	 *
 	 * @since  1.0.0
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
-	public function adminDashboard() {
-		return include_once "{$this->pluginPath}/templates/dashboard.php";
+	public function admin_dashboard() {
+		return include_once "{$this->plugin_path}/templates/dashboard.php";
 	}
 
 	/**
@@ -76,12 +72,12 @@ class AdminCallbacks extends BaseController {
 	 * @since  1.0.0
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
-	public function welcomeSection() {
+	public function welcome_section() {
 		?>
 		<h1>
-			<?php
-			echo esc_html( $this->pluginName );
-			?>
+		<?php
+		echo esc_html( $this->adapted_name );
+		?>
 		</h1>
 		<div id="welcome-panel" class="welcome-panel opl-welcome-panel">
 			<div class="welcome-panel-content">
@@ -104,53 +100,139 @@ class AdminCallbacks extends BaseController {
 						</svg>
 					</div>
 					<h2>
-						<?php
-						echo esc_html(
-							sprintf(
-								__( 'Welcome to %s!', 'oxyprops_lite' ),
-								$this->pluginName
-							)
-						);
-						?>
-					</h2>
-					<p>
 					<?php
-					esc_html_e( 'OxyProps Lite is a free and open source WordPress plugin that brings Open Props Supercharged CSS Variables to your WordPress environment for styling your website. Follow the instruction below to get started!', 'oxyprops_lite' );
+					echo esc_html(
+						sprintf(
+							/* translators: %s is replaced with the plugin name adapted for the site builder */
+							__( 'Welcome to %s!', 'oxyprops_lite' ),
+							$this->adapted_name
+						)
+					);
 					?>
-					</p>
+					</h2>
+					<?php
+					switch ( $this->supported_builder ) {
+						case false:
+							?>
+							<p>
+							<?php
+							echo esc_html(
+								sprintf(
+									/* translators: %s is replaced with the plugin name adapted for the site builder */
+									__( 'The site builder you are using is not officially supported, but you can use %s anyway!', 'oxyprops_lite' ),
+									$this->adapted_name
+								)
+							);
+							echo '&nbsp;';
+							esc_html_e( 'All CSS Variables will be available for you to use.', 'oxyprops_lite' );
+							?>
+							</p>
+							<p>
+							<?php
+							esc_html_e( 'You may experience unexpected styles behaviours if using Normalize as it was not custom designed for your site builder.', 'oxyprops_lite' );
+							?>
+							</p>
+							<?php
+							break;
+						case true:
+							switch ( $this->builder ) {
+								case 'Bricks':
+								case 'Breakdance':
+									?>
+							<p>
+									<?php
+									echo esc_html(
+										sprintf(
+										/* translators: %s is replaced with the plugin name adapted for the site builder */
+											__( 'It looks like you are using %s as your Site Builder.', 'oxyprops_lite' ),
+											$this->builder
+										)
+									);
+									?>
+							</p>
+							<p>
+									<?php
+									echo esc_html(
+										sprintf(
+										/* translators: %1$s is replaced with the site builder name, %2$s is replaced with the plugin name adapted for the site builder, %3$s is replaced with the plugin name */
+											__( 'Good News! %3$s supports %1$s, so let\'s rename it %2$s and it  will adapt to %1$s\'s specifics.', 'oxyprops_lite' ),
+											$this->builder,
+											$this->adapted_name,
+											$this->plugin_name
+										)
+									);
+									?>
+							</p>
+									<?php
+									break;
+								case 'Oxygen':
+									?>
+							<p>
+									<?php
+									echo esc_html(
+										sprintf(
+										/* translators: %s is replaced with the plugin name adapted for the site builder */
+											__( 'It looks like you are using %s as your Site Builder.', 'oxyprops_lite' ),
+											$this->builder
+										)
+									);
+									?>
+							</p>
+							<p>
+									<?php
+										echo esc_html(
+											sprintf(
+											/* translators: %1$s is replaced with the site builder name, %2$s is replaced with the plugin name adapted for the site builder, %3$s is replaced with the plugin name */
+												__( 'Good News! %3$s was built initialy for %1$s so, of course, %1$s is supported.', 'oxyprops_lite' ),
+												$this->builder,
+												$this->adapted_name,
+												$this->plugin_name
+											)
+										);
+									?>
+							</p>
+									<?php
+									break;
+							}
+							break;
+					}
+					?>
 					<p>
-						<?php
-						esc_html_e( 'Learn more about', 'oxyprops_lite' );
-						?>
+							<?php
+							esc_html_e( 'Learn more about', 'oxyprops_lite' );
+							?>
 						<a
 						target="_blank"
 						href="https://lite.oxyprops.com?utm_source=WordPress&utm_medium=link&utm_campaign=plugin"
 						>
-						<?php
-						echo esc_html(
-							sprintf(
-								__( 'OxyProps Lite v%s', 'oxyprops_lite' ),
-								$this->version
-							)
-						);
-						?>
+							<?php
+							echo esc_html(
+								sprintf(
+								/* translators: %s is replaced with the plugin version number */
+									__( '%1$s v%2$s', 'oxyprops_lite' ),
+									$this->plugin_name,
+									$this->version
+								)
+							);
+							?>
 						</a>
-						<?php
-						esc_html_e( 'and', 'oxyprops_lite' );
-						?>
+							<?php
+							esc_html_e( 'and', 'oxyprops_lite' );
+							?>
 						<a
 						target="_blank"
 						rel="noopener noreferer"
 						href="https://open-props.style/"
 						>
-						<?php
-						echo esc_html(
-							sprintf(
-								__( 'Open Props v%s', 'oxyprops_lite' ),
-								'1.4'
-							)
-						);
-						?>
+							<?php
+							echo esc_html(
+								sprintf(
+								/* translators: %s is replaced with Open Props version number */
+									__( 'Open Props v%s', 'oxyprops_lite' ),
+									'1.4'
+								)
+							);
+							?>
 						</a>
 					</p>
 				</div>
@@ -175,7 +257,7 @@ class AdminCallbacks extends BaseController {
 							<?php
 							esc_html_e( 'Get OxyProps PRO today', 'oxyprops_lite' );
 							?>
-							 &rarr;
+							&rarr;
 							</a>
 						</div>
 					</div>
@@ -184,7 +266,13 @@ class AdminCallbacks extends BaseController {
 						<div class="welcome-panel-column-content">
 							<h3>
 							<?php
-							esc_html_e( 'OxyProps Documentation', 'oxyprops_lite' );
+							echo esc_html(
+								sprintf(
+								/* translators: %s is replaced with the plugin name adapted for the site builder */
+									__( '%s Documentation', 'oxyprops_lite' ),
+									$this->adapted_name
+								)
+							);
 							?>
 							</h3>
 							<p>
@@ -199,7 +287,7 @@ class AdminCallbacks extends BaseController {
 							<?php
 							esc_html_e( 'Read Docs', 'oxyprops_lite' );
 							?>
-							 &rarr;
+							&rarr;
 							</a>
 						</div>
 					</div>
@@ -213,7 +301,13 @@ class AdminCallbacks extends BaseController {
 							</h3>
 							<p>
 							<?php
-							esc_html_e( 'Join the OxyProps Users Community and engage discussion with awesome WordPress Professionals from all over the world.', 'oxyprops_lite' );
+							echo esc_html(
+								sprintf(
+								/* translators: %s is replaced with the plugin name adapted for the site builder */
+									__( 'Join the %s Users Community and engage discussion with awesome WordPress Professionals from all over the world.', 'oxyprops_lite' ),
+									$this->adapted_name
+								)
+							);
 							?>
 							</p>
 							<a
@@ -223,7 +317,7 @@ class AdminCallbacks extends BaseController {
 							<?php
 							esc_html_e( 'Join the Community', 'oxyprops_lite' );
 							?>
-							 &rarr;
+							&rarr;
 							</a>
 						</div>
 					</div>
@@ -237,7 +331,13 @@ class AdminCallbacks extends BaseController {
 							</h3>
 							<p>
 							<?php
-							esc_html_e( 'Find video tutorials about using OxyProps, CSS tips and tricks & Web Design. And if you like them, don\'t forget to subscribe!', 'oxyprops_lite' );
+							echo esc_html(
+								sprintf(
+								/* translators: %s is replaced with the plugin name adapted for the site builder */
+									__( 'Find video tutorials about using %s, CSS tips and tricks & Web Design. And if you like them, don\'t forget to subscribe!', 'oxyprops_lite' ),
+									$this->adapted_name
+								)
+							);
 							?>
 							</p>
 							<a 
@@ -247,11 +347,10 @@ class AdminCallbacks extends BaseController {
 							<?php
 							esc_html_e( 'Watch Tutorials', 'oxyprops_lite' );
 							?>
-							 &rarr;
+							&rarr;
 							</a>
 						</div>
 					</div>
-					
 				</div>
 			</div>
 		</div>
@@ -266,7 +365,7 @@ class AdminCallbacks extends BaseController {
 	 * @since  1.0.0
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
-	public function tabsSection() {
+	public function tabs_section() {
 		?>
 		<h2 class="nav-tab-wrapper">
 			<a
@@ -316,13 +415,19 @@ class AdminCallbacks extends BaseController {
 	 * @since  1.0.0
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
-	public function settingsSection() {
+	public function settings_section() {
 		?>
 		<div id="settings" class="gt-tab-pane gt-is-active">
 			<p class="about-description">
-				<?php
-				esc_html_e( 'To keep things simple, OxyProps Lite just works "out of the box". But from here you can customize the way OxyProps Lite loads assets, and remove WordPress default CSS Variables and SVG presets if you want to.', 'oxyprops_lite' );
-				?>
+			<?php
+			echo esc_html(
+				sprintf(
+				/* translators: %1$s is replaced with the plugin name adapted for the site builder */
+					__( 'To keep things simple, %1$s just works "out of the box". But from here you can customize the way %1$s loads assets, and remove WordPress default CSS Variables and SVG presets if you want to.', 'oxyprops_lite' ),
+					$this->adapted_name
+				)
+			);
+			?>
 			</p>
 			<div class="two">
 				<div class="col">
@@ -332,21 +437,24 @@ class AdminCallbacks extends BaseController {
 						?>
 					</h3>
 					<p>
-						<?php
-						esc_html_e(
-							'By default, OxyProps Lite doesn\'t apply Normalize, and loads the full bundle as linked stylesheets.',
-							'oxyprops_lite'
-						);
-						?>
+					<?php
+					echo esc_html(
+						sprintf(
+						/* translators: %s is replaced with the plugin name adapted for the site builder */
+							__( 'By default, %s doesn\'t apply Normalize, and loads the full bundle as linked stylesheets.', 'oxyprops_lite' ),
+							$this->adapted_name
+						)
+					);
+					?>
+					</p>
 					<p>
-					<p>
-						<?php
-						esc_html_e(
-							'You can customize the behavior with the following options:',
-							'oxyprops_lite'
-						);
-						?>
-					<p>
+					<?php
+					esc_html_e(
+						'You can customize the behavior with the following options:',
+						'oxyprops_lite'
+					);
+					?>
+					</p>
 					<form method="POST" action="options.php">
 						<?php
 						settings_fields( 'oxyprops_lite_master_settings' );
@@ -357,9 +465,15 @@ class AdminCallbacks extends BaseController {
 				</div>
 				<div class="col">
 					<h3>
-						<?php
-						esc_html_e( 'SetUp OxyProps Lite', 'oxyprops_lite' );
-						?>
+					<?php
+					echo esc_html(
+						sprintf(
+						/* translators: %s is replaced with the plugin name adapted for the site builder */
+							__( 'SetUp %s', 'oxyprops_lite' ),
+							$this->adapted_name
+						)
+					);
+					?>
 					</h3>
 					<p>
 						<?php
@@ -383,7 +497,7 @@ class AdminCallbacks extends BaseController {
 	 * @since  1.0.0
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
-	public function packagesSection() {
+	public function packages_section() {
 		?>
 		<div id="packages" class="gt-tab-pane">
 			<p class="about-description">
@@ -447,18 +561,18 @@ class AdminCallbacks extends BaseController {
 	 * @since  1.0.0
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
-	public function gettingStartedSection() {
+	public function getting_started_section() {
 		?>
 		<div id="getting-started" class="gt-tab-pane">
 			<div class="two">
 				<div class="col">
 					<h3>
-						<?php
-						esc_html_e(
-							'Using the Props',
-							'oxyprops_lite'
-						);
-						?>
+					<?php
+					esc_html_e(
+						'Using the Props',
+						'oxyprops_lite'
+					);
+					?>
 					</h3>
 					<p>
 						<?php
@@ -482,12 +596,16 @@ class AdminCallbacks extends BaseController {
 						?>
 					</h3>
 					<p>
-						<?php
-						esc_html_e(
-							'OxyProps Lite includes a Normalize stylesheet adapted from Open Props Normalize to WordPress and Oxygen (Bricks soon) specifics.',
-							'oxyprops_lite'
-						);
-						?>
+					<?php
+					echo esc_html(
+						sprintf(
+						/* translators: %s is replaced with the plugin name adapted for the site builder */
+							__( '%1$s includes a Normalize stylesheet adapted from Open Props Normalize to WordPress and %2$s specifics.', 'oxyprops_lite' ),
+							$this->adapted_name,
+							$this->builder
+						)
+					);
+					?>
 					</p>
 					<div class="youtube-video-container">
 						<iframe width="560" height="315" src="https://www.youtube.com/embed/4Y86PTs5CN8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -506,25 +624,27 @@ class AdminCallbacks extends BaseController {
 	 * @since  1.0.0
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
-	public function supportSection() {
+	public function support_section() {
 		?>
 		<div id="support" class="gt-tab-pane">
 		<p class="about-description">
 				<?php
-				$allowedHtml = array(
+				$allowed_html = array(
 					'a' => array(
 						'href' => array(),
 					),
 				);
 				echo wp_kses(
 					sprintf(
+						/* translators: %s is replaced with the link url */
 						__(
-							'Still need help with OxyProps? We offer excellent support for you. But don\'t forget to check our <a href="%s">documentation</a> first.',
+							'Still need help with %2$s? We offer excellent support for you. But don\'t forget to check our <a href="%1$s">documentation</a> first.',
 							'oxyprops_lite'
 						),
-						'https://docs.oxyprops.com?utm_source=WordPress&utm_medium=link&utm_campaign=plugin'
+						'https://docs.oxyprops.com?utm_source=WordPress&utm_medium=link&utm_campaign=plugin',
+						$this->adapted_name
 					),
-					$allowedHtml
+					$allowed_html
 				);
 				?>
 			</p>
@@ -542,7 +662,7 @@ class AdminCallbacks extends BaseController {
 							'oxyprops_lite'
 						);
 						?>
-					<p>
+					</p>
 					<p>
 						<a
 						class="button"
@@ -552,7 +672,7 @@ class AdminCallbacks extends BaseController {
 						<?php
 						esc_html_e( 'Go to Github', 'oxyprops_lite' );
 						?>
-						 &rarr;
+						&rarr;
 						</a>
 					</p>
 				</div>
@@ -569,7 +689,7 @@ class AdminCallbacks extends BaseController {
 							'oxyprops_lite'
 						);
 						?>
-					<p>
+					</p>
 					<p>
 						<a
 						class="button"
@@ -579,7 +699,7 @@ class AdminCallbacks extends BaseController {
 						<?php
 						esc_html_e( 'Open a support request', 'oxyprops_lite' );
 						?>
-						 &rarr;
+						&rarr;
 						</a>
 					</p>
 				</div>
@@ -596,7 +716,7 @@ class AdminCallbacks extends BaseController {
 	 * @since  1.0.0
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
-	public function productsSection() {
+	public function products_section() {
 		?>
 		<div class="postbox">
 			<h3 class="hndle">
@@ -623,12 +743,12 @@ class AdminCallbacks extends BaseController {
 					>
 					No Theme <?php esc_html_e( 'for', 'oxyprops' ); ?> Oxygen
 					</a> - 
-					<?php
-					esc_html_e(
-						'Minimal theme for you Oxygen site',
-						'oxyprops_lite'
-					);
-					?>
+						<?php
+						esc_html_e(
+							'Minimal theme for your Oxygen or Breakdance site.',
+							'oxyprops_lite'
+						);
+						?>
 				</p>
 			</div>
 		</div>
@@ -643,7 +763,7 @@ class AdminCallbacks extends BaseController {
 	 * @since  1.0.0
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
-	public function upgradeSection() {
+	public function upgrade_section() {
 		?>
 		<div class="upgrade">
 			<h3>
@@ -665,56 +785,56 @@ class AdminCallbacks extends BaseController {
 					<svg class="icon">
 						<use xlink:href="#checkmark-outline"></use>
 					</svg>
-					<?php
-					esc_html_e(
-						'Hundreds of exclusive additional props from custom colors to fluid typography and layouts!',
-						'oxyprops_lite'
-					);
-					?>
+						<?php
+						esc_html_e(
+							'Hundreds of exclusive additional props from custom colors to fluid typography and layouts!',
+							'oxyprops_lite'
+						);
+						?>
 				</li>
 				<li>
 					<svg class="icon">
 						<use xlink:href="#checkmark-outline"></use>
 					</svg>
-					<?php
-					esc_html_e(
-						'A full utility classes framework (6500+ classes) built with the core CSS Variables.',
-						'oxyprops_lite'
-					);
-					?>
+						<?php
+						esc_html_e(
+							'A full utility classes framework (6500+ classes) built with the core CSS Variables.',
+							'oxyprops_lite'
+						);
+						?>
 				</li>
 				<li>
 					<svg class="icon">
 						<use xlink:href="#checkmark-outline"></use>
 					</svg>
-					<?php
-					esc_html_e(
-						'Built in color schemes management for easy light/dark modes development.',
-						'oxyprops_lite'
-					);
-					?>
+						<?php
+						esc_html_e(
+							'Built in color schemes management for easy light/dark modes development.',
+							'oxyprops_lite'
+						);
+						?>
 				</li>
 				<li>
 					<svg class="icon">
 						<use xlink:href="#checkmark-outline"></use>
 					</svg>
-					<?php
-					esc_html_e(
-						'OxyProps Builder enhancements (Oxygen, Bricks coming soon) for instant access to the framework.',
-						'oxyprops_lite'
-					);
-					?>
+						<?php
+						esc_html_e(
+							'OxyProps Builder enhancements (Oxygen, Bricks coming soon) for instant access to the framework.',
+							'oxyprops_lite'
+						);
+						?>
 				</li>
 				<li>
 					<svg class="icon">
 						<use xlink:href="#checkmark-outline"></use>
 					</svg>
-					<?php
-					esc_html_e(
-						'Custom elements for damn easy color schemes management (Oxygen, Bricks coming soon).',
-						'oxyprops_lite'
-					);
-					?>
+						<?php
+						esc_html_e(
+							'Custom elements for damn easy color schemes management (Oxygen, Bricks coming soon).',
+							'oxyprops_lite'
+						);
+						?>
 				</li>
 			</ul>
 			<a
@@ -725,7 +845,7 @@ class AdminCallbacks extends BaseController {
 			<?php
 			esc_html_e( 'Get OxyProps PRO today', 'oxyprops_lite' );
 			?>
-			 &rarr;
+			&rarr;
 			</a>
 		</div>
 		<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
