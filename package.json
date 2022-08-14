@@ -11,6 +11,7 @@
     "copy:assets": "copyfiles './assets/**/*'  dist/oxyprops-lite",
     "copy:config": "copyfiles './config/**/*' dist/oxyprops-lite",
     "copy:includes": "copyfiles './includes/**/*' dist/oxyprops-lite",
+    "copy:languages": "copyfiles './languages/**/*' dist/oxyprops-lite",
     "copy:templates": "copyfiles './templates/**/*' dist/oxyprops-lite",
     "copy:vendor": "copyfiles './vendor/**/*' dist/oxyprops-lite",
     "copy:root": "copyfiles *.php dist/oxyprops-lite copyfiles *.txt dist/oxyprops-lite copyfiles LICENSE dist/oxyprops-lite",
