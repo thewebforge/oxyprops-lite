@@ -59,7 +59,7 @@ class Enqueue extends BaseController {
 	 */
 	public function register() {
 		// Admin.
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueueAdmin' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin' ) );
 
 		$inline_selected = isset( $this->current_options['oxyprops_lite_mode'] ) ?
 		$this->current_options['oxyprops_lite_mode'] :
@@ -67,10 +67,10 @@ class Enqueue extends BaseController {
 
 		if ( $inline_selected ) {
 			// Inline Styles.
-			add_action( 'wp_head', array( $this, 'inlineFront' ), 10000000000 );
+			add_action( 'wp_head', array( $this, 'inline_front' ), 10000000000 );
 		} else {
 			// Enqueue Stylesheets.
-			add_action( 'wp_enqueue_scripts', array( $this, 'enqueueFront' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_front' ) );
 		}
 
 		add_action( 'init', array( $this, 'oxyprops_lite_load_textdomain' ) );
@@ -97,7 +97,7 @@ class Enqueue extends BaseController {
 	 * @since  1.0.0
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
-	public function enqueueFront() {
+	public function enqueue_front() {
 		// enqueue our front-end styles.
 		if ( ! $this->current_options['oxyprops_lite_bundle'] ) {
 			wp_enqueue_style(
@@ -146,7 +146,7 @@ class Enqueue extends BaseController {
 	 * @since  1.0.0
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
-	public function enqueueAdmin() {
+	public function enqueue_admin() {
 		// enqueue all our styles.
 		wp_enqueue_style(
 			'oxyprops-adminstyle',
@@ -188,7 +188,7 @@ class Enqueue extends BaseController {
 	 * @since  1.0.0
 	 * @author Cédric Bontems <dev@oxyprops.com>
 	 */
-	public function inlineFront() {
+	public function inline_front() {
 		$styles_to_inject = '';
 
 		if ( ! $this->current_options['oxyprops_lite_bundle'] ) {
