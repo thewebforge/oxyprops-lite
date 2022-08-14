@@ -86,7 +86,7 @@ register_deactivation_hook(__FILE__, 'deactivateOxyPropsLite');
 
 // Initatialize the plugin
 if (class_exists('Inc\\Init')) {
-    Inc\Init::registerServices();
+    Inc\Init::register_services();
 }
 
 if (file_exists(
