@@ -125,7 +125,7 @@ class Dashboard extends BaseController {
 		$this->pages = array(
 			array(
 				'page_title' => $this->adapted_name,
-				'menu_title' => $this->adapted_name,
+				'menu_title' => $this->short_adapted_name,
 				'capability' => 'manage_options',
 				'menu_slug'  => 'oxyprops_lite',
 				'callback'   => array( $this->callbacks, 'admin_dashboard' ),
