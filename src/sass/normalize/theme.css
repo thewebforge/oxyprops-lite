@@ -1,4 +1,6 @@
-:where(html) { 
+:where(html),
+body.logged-in,
+body.brx-body { 
   color: var(--o-text-2);
   background-color: var(--o-surface-1);
 }

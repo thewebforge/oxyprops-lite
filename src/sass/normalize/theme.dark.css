@@ -1,5 +1,7 @@
 @media (--o-OSdark) {
-  :where(html) {
+  :where(html),
+  body.logged-in,
+  body.brx-body {
     color-scheme: dark;
 
     --o-link: var(--o-indigo-3);
