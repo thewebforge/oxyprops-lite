@@ -310,12 +310,12 @@ class BaseController {
 			return 'Oxygen';
 		}
 		if ( 'Bricks' === $theme->name || 'Bricks' === $theme->parent_theme ) {
-			$this->adapted_name = 'BricksProps Lite';
+			$this->adapted_name       = 'BricksProps Lite';
 			$this->short_adapted_name = 'BricksProps Lite';
 			return 'Bricks';
 		}
 		if ( defined( '__BREAKDANCE_VERSION' ) ) {
-			$this->adapted_name = 'BreakdanceProps Lite';
+			$this->adapted_name       = 'BreakdanceProps Lite';
 			$this->short_adapted_name = 'BDProps Lite';
 			return 'Breakdance';
 		}
