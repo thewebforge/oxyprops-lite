@@ -58,9 +58,9 @@ OxyProps Pro is a Premium WordPress plugin including an extended version of Open
 == Changelog ==
 
 = 0.9.0-beta-1 =
-* Beta release.
+* First beta release.
 
 == Upgrade Notice ==
 
 = 0.9.0-beta-1 =
-* Beta release.
+* First beta release.
