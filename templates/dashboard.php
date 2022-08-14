@@ -14,31 +14,31 @@
 
 use Inc\Api\Callbacks\AdminCallbacks;
 
-$callbacks = AdminCallbacks::getInstance();
+$callbacks = AdminCallbacks::get_instance();
 ?>
 <div class="wrap">
 <?php
-                    $callbacks->welcomeSection();
-                    ?>
-    <div id="poststuff">
-        <div id="post-body" class="metabox-holder columns-2">
-            <div id="post-body-content">
-                <div class="about-wrap">
-                    <?php
-                    $callbacks->tabsSection();
-                    $callbacks->settingsSection();
-                    $callbacks->packagesSection();
-                    $callbacks->gettingStartedSection();
-                    $callbacks->supportSection();
-                    ?>
-                </div>
-            </div>
-            <div id="postbox-container-1" class="postbox-container">
-                <?php
-                $callbacks->productsSection();
-                $callbacks->upgradeSection();
-                ?>
-            </div>
-        </div>
-    </div>
+$callbacks->welcome_section();
+?>
+	<div id="poststuff">
+		<div id="post-body" class="metabox-holder columns-2">
+			<div id="post-body-content">
+				<div class="about-wrap">
+					<?php
+					$callbacks->tabs_section();
+					$callbacks->settings_section();
+					$callbacks->packages_section();
+					$callbacks->getting_started_section();
+					$callbacks->support_section();
+					?>
+				</div>
+			</div>
+			<div id="postbox-container-1" class="postbox-container">
+				<?php
+				$callbacks->products_section();
+				$callbacks->upgrade_section();
+				?>
+			</div>
+		</div>
+	</div>
 </div>
